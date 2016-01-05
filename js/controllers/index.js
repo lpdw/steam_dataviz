@@ -17,19 +17,18 @@ app.controller('indexCtrl',function($scope,$http)
     	for (var i = 0; i < $scope.topGames.length; i++)
     	{
     		retreiveCurrentPlayers(i);	
-    	};
-
-    	function retreiveCurrentPlayers(i)
-    	{
-    		$http.get(api.steamDB+"/"+$scope.topGames[i].appid+"w.json")
-    		.success(function(t)
-    		{
-    			$scope.topGames[i].currentPlayers = t.players[t.players.length-1];
-    		});
     	}
-
-    	console.log($scope.topGames);
     });
+    function retreiveCurrentPlayers(i)
+    {
+        $http.get(api.steamDB+"/"+$scope.topGames[i].appid+"w.json")
+            .success(function(t)
+            {
+                $scope.topGames[i].currentPlayers = t.players[t.players.length-1];
+            });
+    }
+
+    console.log($scope.topGames);
     //Ici on récupère le nombre d'utilisateurs en ligne en live et on simule un changement en temps réèl (alors qu'en fait non mais les gens sont con ils verront rien mdr)
     
     $scope.graph = function () {
