@@ -1,9 +1,9 @@
 app.controller('userCtrl',function($scope,$http)
 {;
-    $http.get("")   //appel api steam
+    $http.get(api.steam+"/ISteamUser/GetPlayerSummaries/v0002/?key="+api.key+"&steamids=76561197960435530")   //appel api steam
     .success(function(r)
     {
     	console.log(r);
-        $scope.user = r;
+    	console.log('test');
     });
 });
