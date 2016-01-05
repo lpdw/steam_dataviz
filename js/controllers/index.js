@@ -3,8 +3,9 @@ app.controller('indexCtrl',function($scope,$http)
     $http.get(api.steamDB+"/753w.json")   //appel api steam
     .success(function(r)
     {
-        $scope.current = r.players[r.players.length-1];
-        $scope.last = r.players[r.players.length-2];
+    	$scope.chart = r.players;
+        $scope.chart.current = r.players[r.players.length-1];
+        $scope.chart.last = r.players[r.players.length-2];
     });
 
     $http.get(api.steamSpy+"?request=top100in2weeks")
