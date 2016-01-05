@@ -46,6 +46,7 @@
 		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 	</div>
 	<div ng-include="'views/sidebar.html'">
+	<div ng-include="'views/user.html'"></div>
     </div>
 </body>
 </html>
