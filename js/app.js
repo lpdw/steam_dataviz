@@ -1,8 +1,9 @@
 var api = {
+  "key": "F2E9B955820953141E75002BB8052703",
   "steamDB" : "https://ravenholm.steamdb.info",
   "steamDBGlobal" : "https://ravenholm.steamdb.info/ispywithmylittleeye",
   "steamSpy" : "proxy.php?url=http://steamspy.com/api.php",
-  "steam" : "http://api.steampowered.com",
+  "steam" : "proxy.php?url=http://api.steampowered.com",
   "steamDL": "http://cdn.akamai.steamstatic.com/steam/publicstats/download_traffic_per_country.json",
 }
 
