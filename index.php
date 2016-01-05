@@ -38,5 +38,8 @@
 
 </head>
 <body ng-controller="mainCtrl">
+	<div ui-view></div>
+	<div ng-include="'views/sidebar.html'">
+    </div>
 </body>
 </html>
