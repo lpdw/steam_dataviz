@@ -70,7 +70,18 @@ app.controller('indexCtrl',function($scope,$http)
             $scope.chart.evolving = {};
             $scope.chart.evolving.ascending = ascending;
             $scope.chart.evolving.val = d;
-            $scope.chart.display += Math.round(d/r);
+
+            var a;
+            if(Math.round(d/r) <= 1000)
+            {
+                a = Math.round(d/r);
+            }
+            else
+            {
+                a = Math.floor(Math.random() * (900 - 200 +1)) + 200;       // prevent exponential augmentation
+            }
+
+            $scope.chart.display += 
         });
 
     }
