@@ -60,11 +60,6 @@ a{
 	.user-profile{
 		height: 180px;
 		width: 100%;
-		filter: grayscale(1);
-		-webkit-filter: grayscale(1);
-		-moz-filter: grayscale(1);
-		-ms-filter: grayscale(1);
-		-o-filter: grayscale(1);
 		position: absolute;
 		bottom: 0;
 
@@ -93,6 +88,10 @@ a{
 				position: absolute;
 				bottom: 10px;
 				left: 10px;
+
+				.pseudo{
+					font-size: 1.2em;
+				}
 
 				.name{
 					font-weight: normal;
