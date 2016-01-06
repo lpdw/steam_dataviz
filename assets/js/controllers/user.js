@@ -15,6 +15,7 @@ app.controller('userCtrl',function($scope,$http)
                 $scope.user = r.response.players[0];
                 $scope.user.friends = [];
                 $scope.retreiveFriendsList($scope.user.steamid);
+                console.log($scope.user);
             });
     }
 
