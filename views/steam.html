@@ -1,6 +1,21 @@
 <div ng-controller="indexCtrl">
 	<h1>Statistics</h1>
 	<div class="content">
-		<div id="graph" class="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+		{{chart.display}}
+		<div class="graph">
+			<h2>Most Played Games</h2>
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Current Players</th>
+				</tr>
+				<tr ng-repeat="game in topGames">
+					<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" alt="{{game.name}}" style="width:190px;">
+					<td><a href=""><p>{{game.name}}</p></a></td>
+					<td>{{game.currentPlayers}}</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>

@@ -20,6 +20,7 @@ app.controller('indexCtrl',function($scope,$http)
     {
     	$scope.top100 = _.sortBy(r, 'players_2weeks').reverse();
     	$scope.topGames = $scope.top100.slice(0, 15);
+        console.log($scope.topGames);
 
     	for (var i = 0; i < $scope.topGames.length; i++)
     	{
