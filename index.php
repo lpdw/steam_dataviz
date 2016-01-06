@@ -66,24 +66,22 @@
 
 		    include ('steamauth/userInfo.php'); //To access the $steamprofile array
 		    //Protected content
-		    echo "<div class='user-profile' style='background: url(assets/img/profile.png)'>
+		    ?>
+		    <div class='user-profile' style='background-image:url("<?php echo $_SESSION['steam_avatarfull']; ?>");'>
 				<div class='profile-content' style='background-color: {{randomColor}}'>
-					<a href=''><span class='profile-btn'>Profile</span></a>
+					<a href='#/player/<?php echo $_SESSION['steam_steamid']; ?>'><span class='profile-btn'>Profile</span></a>
 					<a href='steamauth/logout.php'><img src='assets/img/off.png' alt='Sign out'></a>
 					<div class='user-names'>
-						<p class='pseudo'>".$steamprofile['steamid']."</p>
-						<p class='name'>John Doe</p>
+						<p class='pseudo'><?php echo $_SESSION['steam_personaname']; ?></p>
 					</div>
 				</div>
-			</div>";
+			</div>
+		<?php
 		}
 		?>
 
     </div>
-
-    <div ng-controller="userCtrl" ng-init="userId: '<?php $steamprofile['steamid']; ?>'">
-    	{{user.name}}
-    </div>
+    
     <a href="" class="menu-mobile"><img src="assets/img/menu-mobile.png" alt="Mobile Menu"></a>
     <div class="main-container">
     	<div ui-view></div>
