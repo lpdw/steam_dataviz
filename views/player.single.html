@@ -1,0 +1,26 @@
+<h1>{{user.personaname}}</h1>
+<p>{{user.steamid}}</p>
+<img src="{{user.avatarfull}}" style="height:100px;">
+<br>
+<a href="{{user.profilurl}}" target="_blank">Open profil on Steam</a>
+<br>
+Country : {{user.loccountrycode}}
+
+<table>
+	<thead>
+		<tr>
+			<td>Avatar</td>
+			<td>Friend name</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="friend in user.friends">
+			<td>
+				<a href="#/player/{{friend.steamid}}">
+					<img src="{{friend.avatarfull}}" style="height:50px;">
+				</a>
+			</td>
+			<td>{{friend.personaname}}</td>
+		</tr>
+	</tbody>
+</table>
