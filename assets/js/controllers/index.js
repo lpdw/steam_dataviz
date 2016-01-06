@@ -7,7 +7,12 @@ app.controller('indexCtrl',function($scope,$http)
         $scope.chart = r.players;
         $scope.chart.current = r.players[r.players.length-1];
         $scope.chart.last = r.players[r.players.length-2];
+        $scope.chart.display = $scope.chart.last;           // Displayed value
         $scope.graph();
+
+        setInterval(function(){
+            $scope.fakeRealTime();
+        },2000);      // instantiate graph animation
     });
 
     $http.get(api.steamSpy+"?request=top100in2weeks")
@@ -21,13 +26,45 @@ app.controller('indexCtrl',function($scope,$http)
     		retreiveCurrentPlayers(i);	
     	}
     });
+
     function retreiveCurrentPlayers(i)
     {
         $http.get(api.steamDB+"/"+$scope.topGames[i].appid+"w.json")
-            .success(function(t)
-            {
-                $scope.topGames[i].currentPlayers = t.players[t.players.length-1];
-            });
+        .success(function(t)
+        {
+            $scope.topGames[i].currentPlayers = t.players[t.players.length-1];
+        });
+    }
+
+    $scope.fakeRealTime = function()
+    {
+                                // first, we determine if the number of players is ascending or descending
+        var ascending = true;
+        var randValue;
+        if($scope.chart.current <= $scope.chart.last)
+        {
+            ascending = false;
+        }
+
+                    // their is one chance on four that the value go in the invert sens
+        var c = Math.floor(Math.random() * (10  - 1 + 1)) + 1;
+        if(c == 10)
+        {
+            ascending = !ascending; //inverse the boolean
+        }
+
+
+        if(ascending)
+        {
+            randValue = Math.floor(Math.random() * ($scope.chart.current - $scope.chart.display) + $scope.chart.display);
+        }
+        else
+        {
+            randValue = Math.floor(Math.random() * ($scope.chart.current + $scope.chart.display) + $scope.chart.display);
+        }
+        
+        $scope.chart.display = randValue;
+
     }
 
     console.log($scope.topGames);
@@ -64,16 +101,16 @@ app.controller('indexCtrl',function($scope,$http)
                 animation: Highcharts.svg, // don't animate in old IE
                 marginRight: 10,
                 events: {
-                    // load: function () {
+                    load: function () {
 
-                    //     // set up the updating of the chart each second
-                    //     var series = this.series[0];
-                    //     setInterval(function () {
-                    //         var x = (new Date()).getTime(), // current time
-                    //             y = scope.chart[r.players.length+1];
-                    //         series.addPoint([x, y], true, true);
-                    //     }, 1000);
-                    // }
+                         // set up the updating of the chart each second
+                         var series = this.series[0];
+                         setInterval(function () {
+                             var x = (new Date()).getTime(), // current time
+                                 y = r.players.length+1;
+                             series.addPoint([x, y], true, true);
+                         }, 5000);
+                    }
                 }
             },
             title: {
@@ -113,8 +150,8 @@ app.controller('indexCtrl',function($scope,$http)
             series: [{
                 name: 'Random data',
                 data: $scope.chart,
-                pointStart: $scope.startPoint,
-                pointInterval: 600 * 1000
+                pointStart: $scope.chart.last,
+                pointInterval: 600
                 // (function () {
                 //     // generate an array of random data
                 //     var data = [],
