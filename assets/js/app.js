@@ -14,7 +14,7 @@ var app = angular.module('dataviz', [
 app.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
-  $urlRouterProvider.otherwise("/steam");
+  $urlRouterProvider.otherwise("/");
   //
   // Now set up the states
   $stateProvider
@@ -48,4 +48,30 @@ app.controller('mainCtrl', ['$scope', function($scope)
 {
 	// controlleur principal
 	// ici se trouvent les fnction et variables globales
+
+	colorChoice = Math.floor(Math.random()*6+1);
+
+	switch(colorChoice) {
+    case 1:
+        $scope.randomColor = "rgba(230,19,19,0.6)";//red
+        break;
+    case 2:
+        $scope.randomColor = "rgba(0,107,222,0.6)";//blue
+        break;
+    case 3:
+        $scope.randomColor = "rgba(13,160,33,0.6)";//green
+        break;
+    case 4:
+        $scope.randomColor = "rgba(160,28,183,0.6)";//purple
+        break;
+    case 5:
+        $scope.randomColor = "rgba(224,133,16,0.6)";//orange
+        break;
+    case 6:
+        $scope.randomColor = "rgba(2,29,234,0.6)";//night
+        break;
+}
+
+
+
 }]);
