@@ -8,6 +8,7 @@ app.controller('indexCtrl',function($scope,$http)
         $scope.chart.current = r.players[r.players.length-1];
         $scope.chart.last = r.players[r.players.length-2];
         $scope.chart.display = $scope.chart.last;           // Displayed value
+        $scope.chart.evolving = {};
         $scope.graph();
 
         setInterval(function(){
@@ -52,25 +53,23 @@ app.controller('indexCtrl',function($scope,$http)
         }
 
                     // their is one chance on four that the value go in the invert sens
-        var c = Math.floor(Math.random() * (10  - 1 + 1)) + 1;
-        if(c == 10)
-        {
-            ascending = !ascending; //inverse the boolean
-        }
-
+        var r = (5*60)/5;
+        var d;
         if(ascending)
         {
-            newValue = Math.floor(Math.random() * ($scope.chart.current - $scope.chart.display +1)) + $scope.chart.display;
+            d = $scope.chart.current - $scope.chart.last;
         }
         else
         {
-            newValue = $scope.chart.display - Math.floor(Math.random() * (1000 - 100 +1)) + 100;        // substract a value between 100 & 1000
+            d = $scope.chart.last - $scope.chart.current;
         }
 
-        // $scope.chart.display = randValue;
         $scope.$apply(function () // auto refresh the scope
         {
-            $scope.chart.display = newValue;
+            $scope.chart.evolving = {};
+            $scope.chart.evolving.ascending = ascending;
+            $scope.chart.evolving.val = d;
+            $scope.chart.display += Math.round(d/r);
         });
 
     }
