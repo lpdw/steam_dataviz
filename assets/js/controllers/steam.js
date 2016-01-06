@@ -3,6 +3,7 @@ app.controller('indexCtrl',function($scope,$http)
     $http.get(api.steamDB+"/753w.json")   //appel api steam
     .success(function(r)
     {
+        $scope.Math = window.Math;
     	$scope.startPoint = r.start * 1000;
         $scope.chart = r.players;
         $scope.chart.current = r.players[r.players.length-1];
@@ -143,7 +144,12 @@ app.controller('indexCtrl',function($scope,$http)
                 }
             },
             title: {
-                text: 'Live random data'
+                text: 'Players on Steam these last days',
+                style: {
+                    color: '#FFF',
+                    textTransform: 'uppercase',
+                    fontSize: '20px'
+                }
             },
             xAxis: {
                 type: 'datetime'

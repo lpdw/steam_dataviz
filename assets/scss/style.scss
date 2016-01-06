@@ -132,13 +132,6 @@ a{
 	.content{
 		padding: 16px;
 
-		h2{
-			font-size: 22px;
-			text-align: center;
-			margin-top: 10px;
-			margin-bottom: 30px;
-		}
-
 		.graph{
 			width: auto;
 			max-width: 50%;
@@ -146,10 +139,21 @@ a{
 		    padding: 20px;
 		    background-color: #fff;
 		    color: #333;
-		    margin-top: 10px;
+		    margin: 10px 0;
+		    margin-right: 10px;
 		    box-shadow: #000 0px 0px 8px;
 
+		    h2{
+				font-size: 22px;
+				text-align: center;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			    text-transform: capitalize;
+			}
+
 		    table{
+				margin-top: 20px;
+
 		    	th{
 		    		text-align: center;
 				    vertical-align: middle;
@@ -162,6 +166,11 @@ a{
     				padding: 0 10px;
     				text-align: center;
 		    	}
+		    }
+
+		    p{
+		    	font-size: 42px;
+		    	text-align: center;
 		    }
 
 		    a{
