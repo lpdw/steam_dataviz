@@ -83,6 +83,7 @@ app.controller('indexCtrl',function($scope,$http)
             }
 
             $scope.chart.display += a;
+            $scope.chart.evolving.val = a;
         });
 
     }

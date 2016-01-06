@@ -3,9 +3,6 @@
 <!DOCTYPE html>
 <html ng-app="dataviz">
 <head>
-
-
-
 	<title>Steam Dataviz</title>
 	<meta charset="utf-8">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,400italic,100italic,500,500italic' rel='stylesheet' type='text/css'>
@@ -87,6 +84,7 @@
     <div ng-controller="userCtrl" ng-init="userId: '<?php $steamprofile['steamid']; ?>'">
     	{{user.name}}
     </div>
+    <a href="" class="menu-mobile"><img src="assets/img/menu-mobile.png" alt="Mobile Menu"></a>
     <div class="main-container">
     	<div ui-view></div>
 

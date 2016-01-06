@@ -180,3 +180,39 @@ a{
 		}
 	}
 }
+
+/* ############# RESPONSIVE ############# */ 
+@media screen and (max-width: 1023px) {
+	.main-container{
+		.content{
+		    .graph{
+		    	width: calc(100% - 40px);
+		    	max-width: none;
+		    	margin: 0 auto;
+		    	margin-top: 10px;
+		    	margin-bottom: 10px;
+		    	margin-right: 0px;
+		    }
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.sidebar{
+		left: -175px;
+		z-index: 1;
+	}
+
+	.menu-mobile{
+		position: absolute;
+		left: 20px;
+	}
+
+	.main-container{
+		width: 100%;
+		margin-left: 0px;
+
+		.content{
+		}
+	}
+}
