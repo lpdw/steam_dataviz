@@ -54,16 +54,17 @@ app.controller('indexCtrl',function($scope,$http)
         }
 
 
-        if(ascending)
+        /*if(ascending)
         {
             randValue = Math.floor(Math.random() * ($scope.chart.current - $scope.chart.display) + $scope.chart.display);
         }
         else
         {
             randValue = Math.floor(Math.random() * ($scope.chart.current + $scope.chart.display) + $scope.chart.display);
-        }
+        }*/
+
         
-        $scope.chart.display = randValue;
+        $scope.chart.display += 100;
 
     }
 
