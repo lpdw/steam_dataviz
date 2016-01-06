@@ -1,11 +1,15 @@
+<?php require 'steamauth/steamauth.php';?>
+
 <!DOCTYPE html>
 <html ng-app="dataviz">
 <head>
 
+
+
 	<title>Steam Dataviz</title>
 	<meta charset="utf-8">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,400italic,100italic,500,500italic' rel='stylesheet' type='text/css'>
-	
+
 	<style>
 	<?php
 	// loading all style
@@ -43,10 +47,43 @@
 
 </head>
 <body ng-controller="mainCtrl">
-	<div class="sidebar" ng-include="'views/sidebar.html'">
+	<div class="sidebar">
+		<a ui-sref="steam" class="logo">
+			<img src="assets/img/logo.png" alt="Logo">
+		</a>
+		<nav>
+			<ul>
+				<li><a ui-sref="steam">Steam</a></li>
+				<li><a ui-sref="game">Games</a></li>
+				<li><a ui-sref="player">Players</a></li>
+			</ul>
+		</nav>
+		<?php
+		if(!isset($_SESSION['steamid'])) {
+
+		    steamlogin(); //login button
+
+		}  else {
+
+		    include ('steamauth/userInfo.php'); //To access the $steamprofile array
+		    //Protected content
+		    echo "<div class='user-profile' style='background: url(assets/img/profile.png)'>
+				<div class='profile-content' style='background-color: {{randomColor}}'>
+					<a href=''><span class='profile-btn'>Profile</span></a>
+					<a href='steamauth/logout.php'><img src='assets/img/off.png' alt='Sign out'></a>
+					<div class='user-names'>
+						<p class='pseudo'>".$steamprofile['personaname']."</p>
+						<p class='name'>John Doe</p>
+					</div>
+				</div>
+			</div>";
+		}
+		?>
+
     </div>
     <div class="main-container">
     	<div ui-view></div>
+
     </div>
 </body>
 </html>
