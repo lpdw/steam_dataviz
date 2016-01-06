@@ -47,30 +47,31 @@ app.controller('indexCtrl',function($scope,$http)
         }
 
                     // their is one chance on four that the value go in the invert sens
-        var c = Math.floor(Math.random() * (10  - 1 + 1)) + 1;
-        if(c == 10)
-        {
-            ascending = !ascending; //inverse the boolean
-        }
+        // var c = Math.floor(Math.random() * (10  - 1 + 1)) + 1;
+        // if(c == 10)
+        // {
+        //     ascending = !ascending; //inverse the boolean
+        // }
 
 
-        /*if(ascending)
-        {
-            randValue = Math.floor(Math.random() * ($scope.chart.current - $scope.chart.display) + $scope.chart.display);
-        }
-        else
-        {
-            randValue = Math.floor(Math.random() * ($scope.chart.current + $scope.chart.display) + $scope.chart.display);
-        }*/
+        // if(ascending)
+        // {
+        //     randValue = Math.floor(Math.random() * ($scope.chart.current - $scope.chart.display) + $scope.chart.display);
+        // }
+        // else
+        // {
+        //     randValue = Math.floor(Math.random() * ($scope.chart.current - $scope.chart.display) - $scope.chart.display);
+        // }
 
-        
-        $scope.chart.display += 100;
+        // $scope.chart.display = randValue;
+        $scope.chart.display += 100000;
 
     }
 
     console.log($scope.topGames);
     //Ici on récupère le nombre d'utilisateurs en ligne en live et on simule un changement en temps réèl (alors qu'en fait non mais les gens sont con ils verront rien mdr)
     
+    //Graphs
     $scope.graph = function () {
         Highcharts.setOptions({
             global: {
@@ -108,9 +109,9 @@ app.controller('indexCtrl',function($scope,$http)
                          var series = this.series[0];
                          setInterval(function () {
                              var x = (new Date()).getTime(), // current time
-                                 y = r.players.length+1;
+                                 y = $scope.chart.display;
                              series.addPoint([x, y], true, true);
-                         }, 5000);
+                         }, 10000);
                     }
                 }
             },
@@ -151,8 +152,8 @@ app.controller('indexCtrl',function($scope,$http)
             series: [{
                 name: 'Random data',
                 data: $scope.chart,
-                pointStart: $scope.chart.last,
-                pointInterval: 600
+                pointStart: $scope.startPoint,
+                pointInterval: 600 * 1000
                 // (function () {
                 //     // generate an array of random data
                 //     var data = [],
