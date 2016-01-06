@@ -12,7 +12,11 @@ app.controller('indexCtrl',function($scope,$http)
 
         setInterval(function(){
             $scope.fakeRealTime();
-        },2000);      // instantiate graph animation
+        },5000);      // instantiate graph animation
+
+        setInterval(function(){
+            $scope.checkTrueValue();
+        },3000);   
     });
 
     $http.get(api.steamSpy+"?request=top100in2weeks")
@@ -41,32 +45,43 @@ app.controller('indexCtrl',function($scope,$http)
     {
                                 // first, we determine if the number of players is ascending or descending
         var ascending = true;
-        var randValue;
+        var newValue;
         if($scope.chart.current <= $scope.chart.last)
         {
             ascending = false;
         }
 
                     // their is one chance on four that the value go in the invert sens
-        // var c = Math.floor(Math.random() * (10  - 1 + 1)) + 1;
-        // if(c == 10)
-        // {
-        //     ascending = !ascending; //inverse the boolean
-        // }
+        var c = Math.floor(Math.random() * (10  - 1 + 1)) + 1;
+        if(c == 10)
+        {
+            ascending = !ascending; //inverse the boolean
+        }
 
-
-        // if(ascending)
-        // {
-        //     randValue = Math.floor(Math.random() * ($scope.chart.current - $scope.chart.display) + $scope.chart.display);
-        // }
-        // else
-        // {
-        //     randValue = Math.floor(Math.random() * ($scope.chart.current - $scope.chart.display) - $scope.chart.display);
-        // }
+        if(ascending)
+        {
+            newValue = Math.floor(Math.random() * ($scope.chart.current - $scope.chart.display +1)) + $scope.chart.display;
+        }
+        else
+        {
+            newValue = $scope.chart.display - Math.floor(Math.random() * (1000 - 100 +1)) + 100;        // substract a value between 100 & 1000
+        }
 
         // $scope.chart.display = randValue;
-        $scope.chart.display += 100000;
+        $scope.$apply(function () // auto refresh the scope
+        {
+            $scope.chart.display = newValue;
+        });
 
+    }
+
+    $scope.checkTrueValue = function()
+    {
+        $http.get(api.steamDB+"/753w.json")   //appel api steam
+        .success(function(r)
+        {
+            $scope.chart.current = r.players[r.players.length-1];
+        });
     }
 
     console.log($scope.topGames);
@@ -112,7 +127,7 @@ app.controller('indexCtrl',function($scope,$http)
                              var x = (new Date()).getTime(), // current time
                                  y = $scope.chart.display;
                              series.addPoint([x, y], true, true);
-                         }, 10000);
+                         }, 5000);
                     }
                 }
             },
