@@ -8,7 +8,7 @@ var api = {
 }
 
 var app = angular.module('dataviz', [
-  
+  "ui.router"
 ]);
 
 app.controller('mainCtrl', ['$scope', function($scope)
