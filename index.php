@@ -5,7 +5,6 @@
 	<title>Steam Dataviz</title>
 	<meta charset="utf-8">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,400italic,100italic,500,500italic' rel='stylesheet' type='text/css'>
-	<link href='assets/css/style.min.css' rel='stylesheet' type='text/css'>
 	
 	<style>
 	<?php
