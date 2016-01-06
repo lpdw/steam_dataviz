@@ -2,7 +2,7 @@
   "name": "SteamDataviz",
   "version": "1.0.0",
   "description": "",
-  "main": "assets/js/Gruntfile.js",
+  "main": "Gruntfile.js",
   "scripts": {
     "test": "grunt"
   },
