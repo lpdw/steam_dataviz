@@ -11,6 +11,39 @@ var app = angular.module('dataviz', [
   "ui.router"
 ]);
 
+app.config(function($stateProvider, $urlRouterProvider) {
+  //
+  // For any unmatched url, redirect to /state1
+  $urlRouterProvider.otherwise("/steam");
+  //
+  // Now set up the states
+  $stateProvider
+    .state('steam', {
+      url: "/",
+      templateUrl: "views/steam.html"
+    })
+    .state('player', {
+      url: "/player/{{steamid:int}}",
+      templateUrl: "views/player.html",
+      controller: function($stateParams)
+      {
+	      $stateParams.steamid  //*** Exists! ***//
+	  }
+    })
+    .state('game.list', {
+      url: "/game",
+      templateUrl: "views/games.html"
+    })
+    .state('game', {
+      url: "/game/{{appid:int}}",
+      templateUrl: "views/game.single.html",
+      controller: function($stateParams)
+      {
+	      $stateParams.appid  //*** Exists! ***//
+	  }
+    });
+});
+
 app.controller('mainCtrl', ['$scope', function($scope)
 {
 	// controlleur principal
