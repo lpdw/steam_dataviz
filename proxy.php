@@ -1,5 +1,5 @@
 <?php
-$url = $_GET[url];
+$url = $_GET["url"];
 $params = $_GET;
 $c =0;
 if(count($params) > 1){
