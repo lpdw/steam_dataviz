@@ -82,7 +82,15 @@ app.controller('indexCtrl',function($scope,$http)
                 a = Math.floor(Math.random() * (900 - 200 +1)) + 200;       // prevent exponential augmentation
             }
 
-            $scope.chart.display += a;
+            if(ascending)
+            {
+                $scope.chart.display += a;
+            }
+            else
+            {
+                $scope.chart.display -= a;
+            }
+
             $scope.chart.evolving.val = a;
         });
 
