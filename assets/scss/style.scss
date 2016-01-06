@@ -69,6 +69,7 @@ a{
 		width: 100%;
 		position: absolute;
 		bottom: 0;
+		overflow: hidden;
 
 		.profile-content{
 			width: 100%;
@@ -147,7 +148,7 @@ a{
 		    color: #333;
 		    margin: 10px 0;
 		    margin-right: 10px;
-		    box-shadow: #000 0px 0px 8px;
+		    box-shadow: #616161 1px 0px 8px;
 
 		    h2{
 				font-size: 22px;
@@ -186,7 +187,7 @@ a{
 	}
 }
 
-/* ############# RESPONSIVE ############# */ 
+/* ############# RESPONSIVE ############# */
 @media screen and (max-width: 1023px) {
 	.main-container{
 		.content{
