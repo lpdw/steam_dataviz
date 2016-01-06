@@ -23,24 +23,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "views/steam.html"
     })
     .state('player', {
-      url: "/player/{{steamid:int}}",
-      templateUrl: "views/player.html",
-      controller: function($stateParams)
-      {
-	      $stateParams.steamid  //*** Exists! ***//
-	  }
+      url: "/player",
+      templateUrl: "views/players.html",
+      controller: "userCtrl"
     })
-    .state('game.list', {
-      url: "/game",
-      templateUrl: "views/games.html"
+    .state('playerSingle', {
+      url: "/player/:steamid",
+      templateUrl: "views/player.single.html",
+      controller: "userCtrl"
     })
     .state('game', {
-      url: "/game/{{appid:int}}",
+      url: "/game",
+      templateUrl: "views/games.html",
+      controller: "gameCtrl"
+    })
+    .state('gameSingle', {
+      url: "/game/:appid",
       templateUrl: "views/game.single.html",
-      controller: function($stateParams)
-      {
-	      $stateParams.appid  //*** Exists! ***//
-	  }
+      controller: "gameCtrl"
     });
 });
 
