@@ -43,9 +43,10 @@
 
 </head>
 <body ng-controller="mainCtrl">
-	<div ui-view></div>
 	<div class="sidebar" ng-include="'views/sidebar.html'">
     </div>
-    <div class="main-container" ng-include="'views/steam.html'"></div>
+    <div class="main-container">
+    	<div ui-view></div>
+    </div>
 </body>
 </html>
