@@ -1,4 +1,125 @@
+/* ######## Variables ######### */
+$red : rgba(251, 0, 0, 0.6);
+
+/* ____________________________ */
 body{
-	background-color: #592151;
-	font-size: 16px;
+	background-color: #e5e5e5;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+}
+
+a{
+	text-decoration: none;
+	color: #fff;
+}
+
+/* ######## SIDEBAR ######### */
+.sidebar{
+	width: 175px;
+	height: 100%;
+	display: inline-block;
+	background-color: #616161;
+	position: fixed;
+
+	.logo{
+		text-align: center;
+		display: block;
+		height: 65px;
+		line-height: 65px;
+
+		img{
+			vertical-align: middle;
+		}
+	}
+
+	nav{
+		font-size: 23px;
+		font-weight: 100;
+
+		ul{
+			li{
+				height: 56px;
+				line-height: 56px;
+				text-align: center;
+
+				a{
+					height: 100%;
+					width: 100%;
+					display: inline-block;
+					line-height: normal;
+				}
+
+				&:hover, &:active, &:focus{
+					background-color: #4e4e4e;
+				}
+			}
+		}
+	}
+
+	.user-profile{
+		height: 180px;
+		width: 100%;
+		filter: grayscale(1);
+		-webkit-filter: grayscale(1);
+		-moz-filter: grayscale(1);
+		-ms-filter: grayscale(1);
+		-o-filter: grayscale(1);
+		position: absolute;
+		bottom: 0;
+
+		.profile-content{
+			width: 100%;
+			height: 100%;
+			display: block;
+			background-color: $red;
+			padding-top: 10px;
+
+			span{
+				padding: 5px 12px;
+				border: 2px solid #fff;
+				border-radius: 5px;
+				margin-left: 10px;
+			}
+
+			img{
+				text-align: right;
+			}
+
+			.user-names{
+				position: absolute;
+				bottom: 10px;
+				left: 10px;
+
+				.name{
+					font-weight: normal;
+				}
+			}
+		}
+	}
+}
+
+/* ######## MAIN CONTAINER ######### */
+.main-container{
+	width: calc(100% - 175px);
+	height: 100%;
+	display: inline-block;
+	margin-left: 175px;
+
+	h1{
+		color: #000;
+		width: 100%;
+		background-color: #fff;
+		line-height: 65px;
+		text-align: center;
+		font-size: 30px;
+		font-weight: 100;
+	}
+
+	.content{
+		padding: 16px;
+		.graph{
+
+		}
+	}
 }
