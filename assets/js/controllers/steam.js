@@ -38,6 +38,7 @@ app.controller('indexCtrl',function($scope,$http)
         $http.get(api.steamDB+"/"+$scope.topGames[i].appid+"w.json")
         .success(function(t)
         {
+            //$scope.topGames = _.sortBy($scope.topGames, 'currentPlayers').reverse();
             $scope.topGames[i].currentPlayers = t.players[t.players.length-1];
         });
     }
