@@ -63,7 +63,9 @@
 
 		    steamlogin(); //login button
 
-		}  else {
+		}
+		else
+		{
 
 		    include ('steamauth/userInfo.php'); //To access the $steamprofile array
 		    //Protected content
@@ -72,7 +74,7 @@
 					<a href=''><span class='profile-btn'>Profile</span></a>
 					<a href='steamauth/logout.php'><img src='assets/img/off.png' alt='Sign out'></a>
 					<div class='user-names'>
-						<p class='pseudo'>".$steamprofile['personaname']."</p>
+						<p class='pseudo'>".$steamprofile['steamid']."</p>
 						<p class='name'>John Doe</p>
 					</div>
 				</div>
@@ -80,6 +82,10 @@
 		}
 		?>
 
+    </div>
+
+    <div ng-controller="userCtrl" ng-init="userId: '<?php $steamprofile['steamid']; ?>'">
+    	{{user.name}}
     </div>
     <div class="main-container">
     	<div ui-view></div>
