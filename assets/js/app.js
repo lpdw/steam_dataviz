@@ -4,6 +4,7 @@ var api = {
   "steamDBGlobal" : "https://ravenholm.steamdb.info/ispywithmylittleeye",
   "steamSpy" : "proxy.php?url=http://steamspy.com/api.php",
   "steam" : "proxy.php?url=http://api.steampowered.com",
+  "steamStore" : "proxy.php?url=http://store.steampowered.com/api",
   "steamDL": "http://cdn.akamai.steamstatic.com/steam/publicstats/download_traffic_per_country.json",
 }
 
