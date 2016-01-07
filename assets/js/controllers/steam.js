@@ -204,7 +204,7 @@ app.controller('indexCtrl',function($scope,$http)
                 enabled: false
             },
             series: [{
-                name: 'Random data',
+                name: 'Number of player logged on steam',
                 data: $scope.chart,
                 pointStart: $scope.startPoint,
                 pointInterval: 600 * 1000

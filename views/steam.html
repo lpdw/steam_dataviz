@@ -6,7 +6,7 @@
 		</div>
 		<div class="data" ng-show="chart.evolving.ascending">
 			<h2>Percentage Increase of Players</h2>
-			<p>+{{Math.round(((chart.display - chart.last) * 100 / chart.display)*10000)/10000}}%</p>
+			<p>+{{Math.round((chart.evolving.val * 100 / chart.last)*10000)/10000}}%</p>
 		</div>
 		<div class="data" ng-show="chart.evolving.ascending">
 			<h2>Increase of</h2>
@@ -14,7 +14,7 @@
 		</div>
 		<div class="data" ng-show="!chart.evolving.ascending">
 			<h2>Percentage Decrease of Players</h2>
-			<p>-{{Math.round(((chart.last - chart.display) * 100 / chart.last)*10000)/10000}}%</p>
+			<p>-{{Math.round((chart.evolving.val * 100 / chart.display)*10000)/10000}}%</p>
 		</div>
 		<div class="data" ng-show="!chart.evolving.ascending">
 			<h2>Decrease of</h2>
