@@ -31,7 +31,11 @@
 					<th>Current Players</th>
 				</tr>
 				<tr ng-repeat="game in topGames | orderBy:'-currentPlayers'" ng-if="game.currentPlayers">
-					<td class="game-img"><img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" alt="{{game.name}}" style="width:190px;"></td>
+					<td class="game-img">
+						<a href="#/game/{{game.appid}}">
+							<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" alt="{{game.name}}" style="width:190px;">
+						</a>
+					</td>
 					<td><a href="/steam_dataviz/games/{{game.appid}}">{{game.name}}</a></td>
 					<td>{{game.currentPlayers}}</td>
 				</tr>
