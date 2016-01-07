@@ -46,12 +46,7 @@
 					<a href='#/player/<?php echo $_SESSION['steam_steamid']; ?>'><span class='profile-btn'>Profile</span></a>
 					<a href='steamauth/logout.php'><img src='assets/img/off.png' alt='Sign out'></a>
 					<div class='user-names'>
-<<<<<<< HEAD
-						<p class='pseudo'>".$steamprofile['steamid']."</p>
-						<p class='name'>John Doe</p>
-=======
 						<p class='pseudo'><?php echo $_SESSION['steam_personaname']; ?></p>
->>>>>>> 279445bd028ac5e0e1f9d44472f58d7e64a6ba66
 					</div>
 				</div>
 			</div>
@@ -60,7 +55,6 @@
 		?>
 
     </div>
-	
     <div class="main-container">
     	<a href="" class="menu-mobile"><img src="assets/img/menu-mobile.png" alt="Mobile Menu"></a>
 		<h1>Statistics</h1>
@@ -73,6 +67,7 @@
 	<script src="assets/js/vendor/jquery.min.js"></script>
 	<script src="assets/js/vendor/angular.min.js"></script>
 	<script src="assets/js/vendor/underscore.min.js"></script>
+	<script src="assets/js/vendor/jquery.animateNumber.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script> <!-- ui-router -->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -95,7 +90,7 @@
 	</script>
 
 	<script type="text/javascript">
-		
+
 	</script>
 
 </body>
