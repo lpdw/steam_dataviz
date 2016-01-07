@@ -3,14 +3,14 @@
 /* ____________________________ */
 body{
 	background-color: #e5e5e5;
-	color: #fff;
+	color: #000;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 }
 
 a{
 	text-decoration: none;
-	color: #fff;
+	color: #000;
 }
 
 /* ######## SIDEBAR ######### */
@@ -20,6 +20,8 @@ a{
 	display: inline-block;
 	background-color: #616161;
 	position: fixed;
+	left: 0px;
+	color: #fff;
 
 	.logo{
 		text-align: center;
@@ -47,6 +49,7 @@ a{
 					width: 100%;
 					display: inline-block;
 					line-height: normal;
+					color: #fff;
 				}
 
 				&:hover, &:active, &:focus{
@@ -83,6 +86,7 @@ a{
 				border-radius: 5px;
 				margin-left: 10px;
 				float: left;
+				color: #fff;
 
 				&:hover{
 					color: #000;
