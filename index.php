@@ -57,7 +57,6 @@
     </div>
     <div class="main-container">
     	<a href="" class="menu-mobile"><img src="assets/img/menu-mobile.png" alt="Mobile Menu"></a>
-		<h1>Statistics</h1>
     	<div ui-view></div>
 
     </div>
