@@ -20,7 +20,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('steam', {
       url: "/",
-      templateUrl: "views/steam.html"
+      templateUrl: "views/steam.html",
+      controller: "indexCtrl"
     })
     .state('steam.login', {
       url: "/?login",
