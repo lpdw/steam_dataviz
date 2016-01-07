@@ -112,10 +112,6 @@ a{
 	}
 }
 
-/* ######## MENU MOBILE ######### */
-.menu-mobile{
-	display: none;
-}
 
 /* ######## MAIN CONTAINER ######### */
 .main-container{
@@ -123,6 +119,11 @@ a{
 	height: 100%;
 	display: inline-block;
 	margin-left: 175px;
+
+
+	.menu-mobile{
+		display: none;
+	}
 
 	h1{
 		color: #000;
@@ -139,6 +140,10 @@ a{
 		text-align: center;
 
 		.graph{
+		    box-shadow: #000 0px 0px 8px;
+		}
+
+		.data{
 			width: auto;
 			max-width: 50%;
 		    display: inline-block;
@@ -190,7 +195,7 @@ a{
 @media screen and (max-width: 1023px) {
 	.main-container{
 		.content{
-		    .graph{
+		    .data{
 		    	width: calc(100% - 40px);
 		    	max-width: none;
 		    	margin: 0 auto;
@@ -208,14 +213,20 @@ a{
 		z-index: 1;
 	}
 
-	.menu-mobile{
-		position: absolute;
-		left: 20px;
-	}
-
 	.main-container{
 		width: 100%;
 		margin-left: 0px;
+
+		.menu-mobile{
+			display: block;
+			position: absolute;
+			left: 20px;
+			line-height: 65px;
+
+			img{
+				vertical-align: middle;
+			}
+		}
 
 		.content{
 		}
