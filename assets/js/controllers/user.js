@@ -20,8 +20,9 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
         $scope.user.friends = [];
         $scope.retreiveFriendsList($scope.user.steamid);
         $scope.retreiveGamesList($scope.userId);
-
+        
     });
+
 
     $scope.retreiveGamesList = function(userId)
     {
