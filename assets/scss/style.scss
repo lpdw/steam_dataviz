@@ -14,7 +14,7 @@ a{
 }
 
 ::-webkit-scrollbar {height:1em;width:0.5em;} 
-::-webkit-scrollbar-thumb {background:#eee;-webkit-box-shadow: 0 0 2px #888; } /*ascenseur*/
+::-webkit-scrollbar-thumb {background:#616161;-webkit-box-shadow: 0 0 2px #888; } /*ascenseur*/
 
 /* ######## SIDEBAR ######### */
 .sidebar{
@@ -181,6 +181,9 @@ a{
 				    font-size: 14px;
 				    text-transform: none;
 				    padding: 0 5px;
+
+				    ::-webkit-scrollbar {height:1em;width:0.5em;} 
+					::-webkit-scrollbar-thumb {background:#eee;-webkit-box-shadow: 0 0 2px #888; }
 				}
 
 				a{
