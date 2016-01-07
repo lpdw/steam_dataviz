@@ -29,6 +29,7 @@
 					<th class="game-img"></th>
 					<th>Name</th>
 					<th>Current Players</th>
+					<th>Total Time Played</th>
 				</tr>
 				<tr ng-repeat="game in topGames | orderBy:'-currentPlayers'" ng-if="game.currentPlayers">
 					<td class="game-img">
@@ -38,6 +39,7 @@
 					</td>
 					<td><a href="#/game/{{game.appid}}">{{game.name}}</a></td>
 					<td>{{game.currentPlayers}}</td>
+					<td>{{game.timePlayed}}</td>
 				</tr>
 			</table>
 		</div>
