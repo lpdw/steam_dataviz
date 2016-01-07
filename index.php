@@ -20,7 +20,7 @@
 </head>
 <body ng-controller="mainCtrl">
 	<div class="sidebar">
-		<a ui-sref="steam" class="logo">
+		<a href="#/" class="logo">
 			<img src="assets/img/logo.png" alt="Logo">
 		</a>
 		<nav>
