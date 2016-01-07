@@ -30,14 +30,14 @@
 
 	</header>
 	<div class="content">
-		<div class="data">
+		<div class="data user">
 			<h2>Friends ({{ user.friendsCount }})</h2>
 			<a ng-repeat="friend in user.friends" href="#/player/{{friend.steamid}}" title="{{friend.personaname}}">
 				<img src="{{friend.avatarfull}}" style="height:50px;">
 			</a>
 		</div>
 
-		<div class="data">
+		<div class="data user">
 			<h2>Games ({{user.games.length}})</h2>
 			<a ng-repeat="game in user.games" href="#/game/{{game.appid}}">
 				<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" style="height:50px;">
