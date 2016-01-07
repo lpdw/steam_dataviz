@@ -21,6 +21,7 @@ a{
 	width: 175px;
 	height: 100%;
 	display: inline-block;
+	vertical-align: top;
 	background-color: #616161;
 	position: fixed;
 	left: 0px;
@@ -51,6 +52,7 @@ a{
 					height: 100%;
 					width: 100%;
 					display: inline-block;
+					vertical-align: top;
 					line-height: normal;
 					color: #fff;
 				}
@@ -126,6 +128,7 @@ a{
 	width: calc(100% - 175px);
 	height: 100%;
 	display: inline-block;
+	vertical-align: top;
 	margin-left: 175px;
 
 
@@ -157,6 +160,7 @@ a{
 
 		.info{
 			display: inline-block;
+			vertical-align: top;
 			line-height: normal;
 			color: #fff;
 			padding: 20px 20px;
@@ -188,6 +192,7 @@ a{
 				span{
 					font-weight: normal;			
 					display: inline-block;
+					vertical-align: top;
 				    width: 120px;
     				margin: 2px 0;
 
@@ -228,6 +233,7 @@ a{
 			width: auto;
 			max-width: 50%;
 		    display: inline-block;
+			vertical-align: top;
 		    padding: 20px;
 		    background-color: #fff;
 		    color: #333;
