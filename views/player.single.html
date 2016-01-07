@@ -1,26 +1,47 @@
-<h1>{{user.personaname}}</h1>
-<p>{{user.steamid}}</p>
-<img src="{{user.avatarfull}}" style="height:100px;">
-<br>
-<a href="{{user.profilurl}}" target="_blank">Open profil on Steam</a>
-<br>
-Country : {{user.loccountrycode}}
+<div id="game-single">
+	<h1>{{user.personaname}}</h1>
+	<header id="game-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/10/page_bg_generated_v6b.jpg');">
+		<img src="{{user.avatarfull}}" id="game-banner" style="width:150px;">
+		<div class="info">
+			<h2>Games in library</h2> 
+			<p class="desc">{{user.games.length}}</p>
+		</div>
 
-<table>
-	<thead>
-		<tr>
-			<td>Avatar</td>
-			<td>Friend name</td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="friend in user.friends">
-			<td>
-				<a href="#/player/{{friend.steamid}}">
-					<img src="{{friend.avatarfull}}" style="height:50px;">
-				</a>
-			</td>
-			<td>{{friend.personaname}}</td>
-		</tr>
-	</tbody>
-</table>
+		<div class="info">
+			<h2>Achievements unlocked</h2> 
+			<p class="desc">{{ user.achievementsUnlocked }}</p>
+		</div>
+
+		<div class="info">
+			<h2>Achievements progress</h2> 
+			<p class="desc">{{ (user.achievementsUnlocked/user.totalAchievements)*100 }}</p>
+		</div>
+
+		<div class="info">
+			<h2>Friends</h2> 
+			<p class="desc">{{ user.friendsCount }}</p>
+		</div>
+
+		<div class="info">
+			<a href="{{user.profileurl}}" target="_blank">
+				<p><i class="mdi mdi-steam"></i> View on Steam</p>
+			</a>
+		</div>
+
+	</header>
+	<div class="content">
+		<div class="data">
+			<h2>Friends ({{ user.friendsCount }})</h2>
+			<a ng-repeat="friend in user.friends" href="#/player/{{friend.steamid}}" title="{{friend.personaname}}">
+				<img src="{{friend.avatarfull}}" style="height:50px;">
+			</a>
+		</div>
+
+		<div class="data">
+			<h2>Games ({{user.games.length}})</h2>
+			<a ng-repeat="game in user.games" href="#/game/{{game.appid}}">
+				<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" style="height:50px;">
+			</a>
+		</div>
+	</div>
+</div>
