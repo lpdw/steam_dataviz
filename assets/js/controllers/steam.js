@@ -165,7 +165,11 @@ app.controller('indexCtrl',function($scope,$http)
             },
             yAxis: {
                 title: {
-                    text: 'Value'
+                    text: 'Players',
+                    style: {
+                        color: '#ddd',
+                        fontSize: '16px'
+                    }
                 },
                 plotLines: [{
                     value: 0,
