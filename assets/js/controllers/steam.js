@@ -38,8 +38,17 @@ app.controller('indexCtrl',function($scope,$http)
     	for (var i = 0; i < $scope.topGames.length; i++)
     	{
     		retreiveCurrentPlayers(i);
+            getTimePlayed(i);
     	}
     });
+
+    function getTimePlayed(i){
+                console.log($scope.topGames[i].average_forever);
+                var playTimeYear = $scope.topGames[i].average_forever*$scope.topGames[i].players_forever/60/24/365;
+                var playTimeMonth = (playTimeYear - parseInt(playTimeYear))*12;
+                var playTimeDay = (playTimeMonth - parseInt(playTimeMonth))*30;
+                $scope.topGames[i].timePlayed = parseInt(playTimeYear) + " Years " + parseInt(playTimeMonth) + " Month " + parseInt(playTimeDay) + " Days played";
+    }
 
     function retreiveCurrentPlayers(i)
     {
@@ -113,7 +122,7 @@ app.controller('indexCtrl',function($scope,$http)
     }
 
     console.log($scope.topGames);
-    //Ici on récupère le nombre d'utilisateurs en ligne en live et on simule un changement en temps réèl (alors qu'en fait non mais les gens sont con ils verront rien mdr)
+    //Ici on récupère le nombre d'utilisateurs en ligne en live et on simule un changement en temps réèl
 
     //Graphs
     $scope.graph = function () {
