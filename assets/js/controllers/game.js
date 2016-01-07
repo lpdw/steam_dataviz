@@ -2,6 +2,7 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
 {
     $scope.game = {};
     $scope.game.name;
+    $scope.top100;
     $scope.appid = "730";    //cs:go id by default
     if($stateParams.appid)            //if id is defined
     {
@@ -59,6 +60,15 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
                 });
             console.log($scope.game);
         });
+    });
+
+    $http.get(api.steamSpy+"?request=top100in2weeks")
+    .success(function(r)
+    {
+        $scope.top100 = _.sortBy(r, 'players_2weeks').reverse();
+        $scope.top100 = $scope.top100.slice(0, 99);
+
+        console.log($scope.top100);
     });
 
     $http.get(api.steamSpy+"/steamspy.com/api.php?request=appdetails&appid="+$scope.appid)   //appel api steamspy

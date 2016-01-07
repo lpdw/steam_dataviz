@@ -233,7 +233,7 @@ a{
 		    color: #333;
 		    margin: 10px 0;
 		    margin-right: 10px;
-		    box-shadow: #616161 1px 0px 8px;
+		    box-shadow: #808080 1px 0px 8px;
 
 		    h2{
 				font-size: 22px;
@@ -267,6 +267,43 @@ a{
 
 		    a{
 		    	color: #333;
+		    }
+
+		    &.game{
+		    	width: 33%;
+		    	float: left;
+		    	padding: 0;
+		    	margin:0;
+		    	box-shadow: none;
+
+
+		    	img{
+		    		width: 100%;
+		    		display: block;
+			        filter: grayscale(1);
+			        -webkit-filter: grayscale(1);
+			        -moz-filter: grayscale(1);
+			        -o-filter: grayscale(1);
+			        -ms-filter: grayscale(1);
+			        -webkit-transition: all 0.8s ease-in-out;
+				    -moz-transition: all 0.8s ease-in-out;
+				    -o-transition: all 0.8s ease-in-out;
+				    -ms-transition: all 0.8s ease-in-out;
+				    transition: all 0.8s ease-in-out;
+				}
+
+				img:hover{
+			        filter: grayscale(0);
+			        -webkit-filter: grayscale(0);
+			        -moz-filter: grayscale(0);
+			        -o-filter: grayscale(0);
+			        -ms-filter: grayscale(0);
+			        -webkit-transition: all 0.2s ease-in-out;
+				    -moz-transition: all 0.2s ease-in-out;
+				    -o-transition: all 0.2s ease-in-out;
+				    -ms-transition: all 0.2s ease-in-out;
+				    transition: all 0.2s ease-in-out;
+				}
 		    }
 		}
 	}
