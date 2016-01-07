@@ -1,12 +1,14 @@
-app.controller('userCtrl',function($scope,$http)
+app.controller('userCtrl',function($scope,$http,$stateParams)
 {
     $scope.user;
+    $scope.userId = "76561197960287930";    //Gabe Newell id by default
+    if($stateParams.steamid)            //if id is defined
+    {
+        $scope.userId = $stateParams.steamid;
+    }
+
     var friendProfil;
     var friendsOfFriend;
-
-    $scope.$watch('userId', function () {
-        $scope.setUser($scope.userId);
-    });
 
     $scope.setUser = function(userId){
         $http.get(api.steam+"/ISteamUser/GetPlayerSummaries/v0002/?key="+api.key+"&steamids="+userId)   //appel api steam
@@ -18,7 +20,6 @@ app.controller('userCtrl',function($scope,$http)
                 console.log($scope.user);
             });
     }
-
     $scope.retreiveFriendsList = function(userId)
     {
             $http.get(api.steam+"/ISteamUser/GetFriendList/v0001/?key="+api.key+"&steamid="+userId+"&relationship=friend")

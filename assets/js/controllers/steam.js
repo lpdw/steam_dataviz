@@ -3,6 +3,7 @@ app.controller('indexCtrl',function($scope,$http)
     $http.get(api.steamDB+"/753w.json")   //appel api steam
     .success(function(r)
     {
+        $scope.Math = window.Math;
     	$scope.startPoint = r.start * 1000;
         $scope.chart = r.players;
         $scope.chart.current = r.players[r.players.length-1];
@@ -81,7 +82,16 @@ app.controller('indexCtrl',function($scope,$http)
                 a = Math.floor(Math.random() * (900 - 200 +1)) + 200;       // prevent exponential augmentation
             }
 
-            $scope.chart.display += a;
+            if(ascending)
+            {
+                $scope.chart.display += a;
+            }
+            else
+            {
+                $scope.chart.display -= a;
+            }
+
+            $scope.chart.evolving.val = a;
         });
 
     }
@@ -143,14 +153,23 @@ app.controller('indexCtrl',function($scope,$http)
                 }
             },
             title: {
-                text: 'Live random data'
+                text: 'Players on Steam these last days',
+                style: {
+                    color: '#FFF',
+                    textTransform: 'uppercase',
+                    fontSize: '20px'
+                }
             },
             xAxis: {
                 type: 'datetime'
             },
             yAxis: {
                 title: {
-                    text: 'Value'
+                    text: 'Players',
+                    style: {
+                        color: '#ddd',
+                        fontSize: '16px'
+                    }
                 },
                 plotLines: [{
                     value: 0,

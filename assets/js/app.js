@@ -74,8 +74,33 @@ app.controller('mainCtrl', ['$scope', function($scope)
     case 6:
         $scope.randomColor = "rgba(2,29,234,0.6)";//night
         break;
-}
+  }
 
-
+  $(".menu-mobile").click(function(){
+    $(this).toggleClass("opened");
+    if($(this).hasClass("opened")){
+      $(".sidebar").animate({
+        "left" : "0px",
+      });
+      $(".main-container").animate({
+        "margin-left" : "175px",
+      });
+      $(this).animate({
+        "left" : "195px",
+      });
+      $(this).children("img").attr("src", "assets/img/close.png");
+    }else{
+      $(".sidebar").animate({
+        "left" : "-175px",
+      });
+      $(".main-container").animate({
+        "margin-left" : "0px",
+      });
+      $(this).animate({
+        "left" : "20px",
+      });
+      $(this).children("img").attr("src", "assets/img/menu-mobile.png");
+    }
+  });
 
 }]);

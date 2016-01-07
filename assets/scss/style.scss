@@ -69,6 +69,7 @@ a{
 		width: 100%;
 		position: absolute;
 		bottom: 0;
+		overflow: hidden;
 
 		.profile-content{
 			width: 100%;
@@ -112,12 +113,18 @@ a{
 	}
 }
 
+
 /* ######## MAIN CONTAINER ######### */
 .main-container{
 	width: calc(100% - 175px);
 	height: 100%;
 	display: inline-block;
 	margin-left: 175px;
+
+
+	.menu-mobile{
+		display: none;
+	}
 
 	h1{
 		color: #000;
@@ -131,25 +138,34 @@ a{
 
 	.content{
 		padding: 16px;
-
-		h2{
-			font-size: 22px;
-			text-align: center;
-			margin-top: 10px;
-			margin-bottom: 30px;
-		}
+		text-align: center;
 
 		.graph{
+		    box-shadow: #000 0px 0px 8px;
+		}
+
+		.data{
 			width: auto;
 			max-width: 50%;
 		    display: inline-block;
 		    padding: 20px;
 		    background-color: #fff;
 		    color: #333;
-		    margin-top: 10px;
-		    box-shadow: #000 0px 0px 8px;
+		    margin: 10px 0;
+		    margin-right: 10px;
+		    box-shadow: #616161 1px 0px 8px;
+
+		    h2{
+				font-size: 22px;
+				text-align: center;
+				margin-top: 10px;
+				margin-bottom: 10px;
+			    text-transform: capitalize;
+			}
 
 		    table{
+				margin-top: 20px;
+
 		    	th{
 		    		text-align: center;
 				    vertical-align: middle;
@@ -164,9 +180,59 @@ a{
 		    	}
 		    }
 
+		    p{
+		    	font-size: 42px;
+		    	text-align: center;
+		    }
+
 		    a{
 		    	color: #333;
 		    }
 		}
+	}
+}
+
+/* ############# RESPONSIVE ############# */
+@media screen and (max-width: 1023px) {
+	.main-container{
+		.content{
+		    .data{
+		    	width: calc(100% - 40px);
+		    	max-width: none;
+		    	margin: 0 auto;
+		    	margin-top: 10px;
+		    	margin-bottom: 10px;
+		    	margin-right: 0px;
+		    }
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.sidebar{
+		left: -175px;
+		z-index: 1;
+	}
+
+	.main-container{
+		width: 100%;
+		margin-left: 0px;
+
+		.menu-mobile{
+			display: block;
+			position: absolute;
+			left: 20px;
+			line-height: 65px;
+
+			img{
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 465px) {
+	.game-img{
+		display: none;
 	}
 }
