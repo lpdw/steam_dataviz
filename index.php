@@ -70,26 +70,24 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script> <!-- ui-router -->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-	<script>
 	<?php
 
 	// loading basic js
 	foreach (glob("assets/js/*.js") as $filename)
 	{
-	    echo file_get_contents($filename);
+	    ?>
+	    <script src="<?php echo $filename; ?>"></script>
+	    <?php
 	}
 
 	// loading angular controllers
 	foreach (glob("assets/js/controllers/*.js") as $filename)
 	{
-	    echo file_get_contents($filename);
+	    ?>
+	    <script src="<?php echo $filename; ?>"></script>
+	    <?php
 	}
 	?>
-	</script>
-
-	<script type="text/javascript">
-
 	</script>
 
 </body>
