@@ -1,6 +1,7 @@
 app.controller('gameCtrl',function($scope,$http,$stateParams)
 {
-    $scope.game;
+    $scope.game = {};
+    $scope.game.name;
     $scope.appid = "76561197960287930";    //Gabe Newell id by default
     if($stateParams.appid)            //if id is defined
     {
@@ -10,7 +11,14 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
     var friendProfil;
     var friendsOfFriend;
 
-    $http.get(api.steamDB+"/"+$scope.appid+"w.json")   //retreive stats fron steamdb
+    $http.get(api.steamSpy+"?request=appdetails&appid="+$scope.appid)   //calling steamspy info (basic game informations)
+    .success(function(r)
+    {
+        $scope.game = r;
+    });
+
+    $http.get(api.steamDB+"/"+$scope.appid+"w.json")   //appel api steam
+    
     .success(function(r)
     {
         $scope.Math = window.Math;
@@ -20,19 +28,18 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
         $scope.chart.last = r.players[r.players.length-2];
         $scope.chart.display = $scope.chart.last;           // Displayed value
         $scope.chart.evolving = {};
-        //$scope.graph();
+        $scope.graph();
 
         setInterval(function(){
             $scope.fakeRealTime();
 
             var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-            $('#users').animateNumber(
+            $('#game-users').animateNumber(
               {
                 number: $scope.chart.display,
                 numberStep: comma_separator_number_step
               }
             );
-            console.log($scope.chart);
         },5000);      // instantiate graph animation
 
         setInterval(function(){
@@ -107,7 +114,7 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
 
     $scope.checkTrueValue = function()
     {
-        $http.get(api.steamDB+"/753w.json")   //appel api steam
+        $http.get(api.steamDB+"/"+$scope.appid+"w.json")   //appel api steam
         .success(function(r)
         {
             $scope.chart.current = r.players[r.players.length-1];
@@ -129,7 +136,7 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
            type: 'text/css'
         }, null, document.getElementsByTagName('head')[0]);
 
-        $('#graph').highcharts({
+        $('#graph-game').highcharts({
             chart: {
                 backgroundColor: {
                  linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
@@ -202,7 +209,7 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
                 enabled: false
             },
             series: [{
-                name: 'Number of players playing '+$scope.game.name,
+                name: 'Number of players playing '+ $scope.game.name,
                 data: $scope.chart,
                 pointStart: $scope.startPoint,
                 pointInterval: 600 * 1000
