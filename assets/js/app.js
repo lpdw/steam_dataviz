@@ -32,7 +32,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('player', {
       url: "/player",
       templateUrl: "views/players.html",
-      controller: "userCtrl"
+      controller: "usersListCtrl"
     })
     .state('playerSingle', {
       url: "/player/:steamid",
