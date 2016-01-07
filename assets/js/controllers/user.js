@@ -10,16 +10,15 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
     var friendProfil;
     var friendsOfFriend;
 
-    $scope.setUser = function(userId){
-        $http.get(api.steam+"/ISteamUser/GetPlayerSummaries/v0002/?key="+api.key+"&steamids="+userId)   //appel api steam
-            .success(function(r)
-            {
-                $scope.user = r.response.players[0];
-                $scope.user.friends = [];
-                $scope.retreiveFriendsList($scope.user.steamid);
-                console.log($scope.user);
-            });
-    }
+    $http.get(api.steam+"/ISteamUser/GetPlayerSummaries/v0002/?key="+api.key+"&steamids="+$scope.userId)   //appel api steam
+    .success(function(r)
+    {
+        $scope.user = r.response.players[0];
+        $scope.user.friends = [];
+        $scope.retreiveFriendsList($scope.user.steamid);
+        console.log($scope.user);
+    });
+
     $scope.retreiveFriendsList = function(userId)
     {
             $http.get(api.steam+"/ISteamUser/GetFriendList/v0001/?key="+api.key+"&steamid="+userId+"&relationship=friend")
