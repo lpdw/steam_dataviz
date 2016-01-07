@@ -14,11 +14,19 @@ app.controller('indexCtrl',function($scope,$http)
 
         setInterval(function(){
             $scope.fakeRealTime();
+
+            var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+            $('#users').animateNumber(
+              {
+                number: $scope.chart.display,
+                numberStep: comma_separator_number_step
+              }
+            );
         },5000);      // instantiate graph animation
 
         setInterval(function(){
             $scope.checkTrueValue();
-        },3000);   
+        },3000);
     });
 
     $http.get(api.steamSpy+"?request=top100in2weeks")
@@ -30,7 +38,7 @@ app.controller('indexCtrl',function($scope,$http)
 
     	for (var i = 0; i < $scope.topGames.length; i++)
     	{
-    		retreiveCurrentPlayers(i);	
+    		retreiveCurrentPlayers(i);
     	}
     });
 
@@ -107,7 +115,7 @@ app.controller('indexCtrl',function($scope,$http)
 
     console.log($scope.topGames);
     //Ici on récupère le nombre d'utilisateurs en ligne en live et on simule un changement en temps réèl (alors qu'en fait non mais les gens sont con ils verront rien mdr)
-    
+
     //Graphs
     $scope.graph = function () {
         Highcharts.setOptions({

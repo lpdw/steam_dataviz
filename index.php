@@ -55,7 +55,7 @@
 		?>
 
     </div>
-    
+
     <div class="main-container">
     	<a href="" class="menu-mobile"><img src="assets/img/menu-mobile.png" alt="Mobile Menu"></a>
 		<h1>Statistics</h1>
@@ -68,6 +68,7 @@
 	<script src="assets/js/vendor/jquery.min.js"></script>
 	<script src="assets/js/vendor/angular.min.js"></script>
 	<script src="assets/js/vendor/underscore.min.js"></script>
+	<script src="assets/js/vendor/jquery.animateNumber.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script> <!-- ui-router -->
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -90,7 +91,7 @@
 	</script>
 
 	<script type="text/javascript">
-		
+
 	</script>
 
 </body>
