@@ -10,13 +10,7 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
     var friendProfil;
     var friendsOfFriend;
 
-    $http.get(api.steamSpy+"?request=appdetails&appid="+$scope.appid)   //calling steamspy info (basic game informations)
-    .success(function(r)
-    {
-        $scope.game = r;
-    });
-
-    $http.get(api.steamDB+"/"+$scope.appid+"w.json")   //appel api steam
+    $http.get(api.steamDB+"/"+$scope.appid+"w.json")   //retreive stats fron steamdb
     .success(function(r)
     {
         $scope.Math = window.Math;
@@ -44,6 +38,18 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
         setInterval(function(){
             $scope.checkTrueValue();
         },20000);
+    });
+
+    $http.get(api.steamStore+"/appdetails?appids="+$scope.appid)   //appel api steam
+    .success(function(r)
+    {
+        $scope.game = r[$scope.appid].data;
+        $http.get(api.steamSpy+"?request=appdetails&appid="+$scope.appid)   //calling steamspy info (basic game informations)
+        .success(function(a)
+        {
+            $scope.game.additional_infos = a;
+            console.log($scope.game);
+        });
     });
 
 
