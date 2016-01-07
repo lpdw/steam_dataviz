@@ -26,7 +26,7 @@ app.controller('indexCtrl',function($scope,$http)
 
         setInterval(function(){
             $scope.checkTrueValue();
-        },3000);
+        },20000);
     });
 
     $http.get(api.steamSpy+"?request=top100in2weeks")
@@ -187,7 +187,7 @@ app.controller('indexCtrl',function($scope,$http)
             tooltip: {
                 formatter: function () {
                     return '<b>' + this.series.name + '</b><br/>' +
-                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+                        Highcharts.dateFormat('%d-%m-%Y %H:%M:%S', this.x) + '<br/>' +
                         Highcharts.numberFormat(this.y, 2);
                 }
             },
@@ -203,7 +203,7 @@ app.controller('indexCtrl',function($scope,$http)
                 enabled: false
             },
             series: [{
-                name: 'Number of player logged on steam',
+                name: 'Number of players logged on steam',
                 data: $scope.chart,
                 pointStart: $scope.startPoint,
                 pointInterval: 600 * 1000
