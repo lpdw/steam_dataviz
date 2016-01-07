@@ -25,12 +25,12 @@
 			<h2>Most Played Games</h2>
 			<table>
 				<tr>
-					<th></th>
+					<th class="game-img"></th>
 					<th>Name</th>
 					<th>Current Players</th>
 				</tr>
 				<tr ng-repeat="game in topGames | orderBy:'-currentPlayers'" ng-if="game.currentPlayers">
-					<td><img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" alt="{{game.name}}" style="width:190px;"></td>
+					<td class="game-img"><img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" alt="{{game.name}}" style="width:190px;"></td>
 					<td><a href="/steam_dataviz/games/{{game.appid}}">{{game.name}}</a></td>
 					<td>{{game.currentPlayers}}</td>
 				</tr>

@@ -228,8 +228,11 @@ a{
 				vertical-align: middle;
 			}
 		}
+	}
+}
 
-		.content{
-		}
+@media screen and (max-width: 465px) {
+	.game-img{
+		display: none;
 	}
 }
