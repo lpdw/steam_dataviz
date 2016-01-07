@@ -57,12 +57,11 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
 
     $scope.getFriendProfilOfFriends = function(friendId, userProfil){
         $http.get(api.steam+"/ISteamUser/GetPlayerSummaries/v0002/?key="+api.key+"&steamids="+friendId)   //appel api steam
-            .success(function(r)
-            {
-                friendsOfFriend = r.response.players[0];
-                userProfil.friends.push(friendsOfFriend);
-                console.log($scope.user);
-            });
+        .success(function(r)
+        {
+            friendsOfFriend = r.response.players[0];
+            userProfil.friends.push(friendsOfFriend);
+        });
     }
 
 });
