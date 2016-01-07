@@ -140,6 +140,29 @@ a{
 		font-weight: 100;
 	}
 
+	header{
+		height: 218px;
+		line-height: 218px;
+
+		img{
+			float: left;
+			height: 100%;
+		}
+
+		.info{
+			display: inline-block;
+			float: left;
+			line-height: normal;
+			color: #fff;
+
+			p{
+				span{
+					font-weight: normal;
+				}
+			}
+		}
+	}
+
 	.content{
 		padding: 16px;
 		text-align: center;

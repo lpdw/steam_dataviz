@@ -1,7 +1,38 @@
 <div id="game-single">
-	<header id="game-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/page_bg_generated_v6b.jpg');">
-		<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" id="game-banner">
-		<h1>{{game.name}}</h1>
-		Possédé par {{game.owners}} personnes
+	<h1>{{game.name}}</h1>
+	<header id="game-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/{{game.additional_infos.appid}}/page_bg_generated_v6b.jpg');">
+		<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.additional_infos.appid}}/header.jpg" id="game-banner">
+		<div class="info">
+			<p><span>Developer :</span> {{game.additional_infos.developer}}</p>
+			<p><span>Publisher :</span> {{game.additional_infos.publisher}}</p>
+		</div>
+
 	</header>
+	<div class="content">
+		<div class="data">
+			<h2>Players on Steam right now</h2>
+			<p id="game-users">{{chart.display}}</p>
+		</div>
+		<div class="data" ng-show="chart.evolving.ascending">
+			<h2>Percentage Increase of Players</h2>
+			<p ng-if="chart.evolving.val != 0">+{{Math.round((chart.evolving.val * 100 / chart.last)*10000)/10000}}%</p>
+		</div>
+		<div class="data" ng-show="chart.evolving.ascending">
+			<h2>Increase of</h2>
+			<p>+{{chart.evolving.val}}</p>
+		</div>
+		<div class="data" ng-show="!chart.evolving.ascending">
+			<h2>Percentage Decrease of Players</h2>
+			<p ng-if="chart.evolving.val != 0">-{{Math.round((chart.evolving.val * 100 / chart.display)*10000)/10000}}%</p>
+		</div>
+		<div class="data" ng-show="!chart.evolving.ascending">
+			<h2>Decrease of</h2>
+			<p>-{{chart.evolving.val}}</p>
+		</div>
+		<div class="data">
+			<h2>Owned by</h2>
+			<p>{{game.additional_infos.owners}} Persons</p>
+		</div>
+		<div id="graph-game" class="graph" style="width: 100%; height: 400px; margin: 0 auto"></div>
+	</div>
 </div>
