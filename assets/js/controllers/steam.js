@@ -47,7 +47,7 @@ app.controller('indexCtrl',function($scope,$http)
                 var playTimeYear = $scope.topGames[i].average_forever*$scope.topGames[i].players_forever/60/24/365;
                 var playTimeMonth = (playTimeYear - parseInt(playTimeYear))*12;
                 var playTimeDay = (playTimeMonth - parseInt(playTimeMonth))*30;
-                $scope.topGames[i].timePlayedYears = parseInt(playTimeYear);
+                $scope.topGames[i].timePlayedYear = parseInt(playTimeYear);
                 $scope.topGames[i].timePlayedMonth = parseInt(playTimeMonth);
                 $scope.topGames[i].timePlayedDay = parseInt(playTimeDay);
     }
