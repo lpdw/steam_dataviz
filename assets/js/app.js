@@ -9,7 +9,8 @@ var api = {
 }
 
 var app = angular.module('dataviz', [
-  "ui.router"
+  "ui.router",
+  'angular.filter'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
@@ -114,5 +115,21 @@ app.controller('mainCtrl', ['$scope','$rootScope', function($scope,$rootScope)
       $(this).children("img").attr("src", "assets/img/menu-mobile.png");
     }
   });
+
+  // if($(window).width() > 767){
+  //   $(".sidebar").animate({
+  //       "left" : "0px",
+  //     });
+  //     $(".main-container").animate({
+  //       "margin-left" : "175px",
+  //     });
+  // }else{
+  //   $(".sidebar").animate({
+  //       "left" : "-175px",
+  //     });
+  //     $(".main-container").animate({
+  //       "margin-left" : "0px",
+  //     });
+  // }
 
 }]);

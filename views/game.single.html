@@ -3,8 +3,21 @@
 	<header id="game-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/{{game.additional_infos.appid}}/page_bg_generated_v6b.jpg');">
 		<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.additional_infos.appid}}/header.jpg" id="game-banner">
 		<div class="info">
+			<p><span>Type :</span> {{game.type}}</p>
 			<p><span>Developer :</span> {{game.additional_infos.developer}}</p>
 			<p><span>Publisher :</span> {{game.additional_infos.publisher}}</p>
+			<p><span>Release Date :</span> {{game.release_date.date}}</p>
+			<p><span>Website :</span> <a href="{{game.website}}">{{game.website}}</a></p>
+			<p><span>Genres :</span>
+				<span class="genre" ng-repeat="genre in game.genres">{{genre.description}}</span>
+			</p>
+			<p><span>Platforms :</span>
+				<span class="genre" ng-repeat="platform in game.platforms" ng-if="platform == true"></span>
+			</p>
+		</div>
+		<div class="info">
+			<h2>Description</h2> 
+			<p class="desc">{{ game.about_the_game | stripTags }}</p>
 		</div>
 
 	</header>
@@ -31,7 +44,11 @@
 		</div>
 		<div class="data">
 			<h2>Owned by</h2>
-			<p>{{game.additional_infos.owners}} Persons</p>
+			<p id="owners">{{game.additional_infos.owners}} Persons</p>
+		</div>
+		<div class="data">
+			<h2>Total play time</h2>
+			<p id="play-time">{{playTime}}</p>
 		</div>
 		<div id="graph-game" class="graph" style="width: 100%; height: 400px; margin: 0 auto"></div>
 	</div>

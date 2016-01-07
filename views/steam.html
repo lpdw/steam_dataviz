@@ -1,4 +1,4 @@
-<div ng-controller="indexCtrl">
+<div>
 	<h1>Statistics</h1>
 	<div class="content">
 		<div class="data">
@@ -36,7 +36,7 @@
 							<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" alt="{{game.name}}" style="width:190px;">
 						</a>
 					</td>
-					<td><a href="/steam_dataviz/games/{{game.appid}}">{{game.name}}</a></td>
+					<td><a href="#/game/{{game.appid}}">{{game.name}}</a></td>
 					<td>{{game.currentPlayers}}</td>
 				</tr>
 			</table>

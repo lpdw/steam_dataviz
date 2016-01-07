@@ -2,14 +2,11 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
 {
     $scope.game = {};
     $scope.game.name;
-    $scope.appid = "76561197960287930";    //Gabe Newell id by default
+    $scope.appid = "730";    //cs:go id by default
     if($stateParams.appid)            //if id is defined
     {
         $scope.appid = $stateParams.appid;
     }
-
-    var friendProfil;
-    var friendsOfFriend;
 
     $http.get(api.steamSpy+"?request=appdetails&appid="+$scope.appid)   //calling steamspy info (basic game informations)
     .success(function(r)
@@ -18,7 +15,6 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
     });
 
     $http.get(api.steamDB+"/"+$scope.appid+"w.json")   //appel api steam
-    
     .success(function(r)
     {
         $scope.Math = window.Math;
@@ -33,7 +29,7 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
         setInterval(function(){
             $scope.fakeRealTime();
 
-            var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+            var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',');
             $('#game-users').animateNumber(
               {
                 number: $scope.chart.display,
@@ -55,10 +51,24 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
         .success(function(a)
         {
             $scope.game.additional_infos = a;
+            var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',');
+            $('#owners').animateNumber(
+                {
+                    number: $scope.game.additional_infos.owners,
+                    numberStep: comma_separator_number_step
+                });
             console.log($scope.game);
         });
     });
 
+    $http.get(api.steamSpy+"/steamspy.com/api.php?request=appdetails&appid="+$scope.appid)   //appel api steamspy
+        .success(function(r)
+        {
+            var playTimeYear = r.average_forever*r.players_forever/60/24/365;
+            var playTimeMonth = (playTimeYear - parseInt(playTimeYear))*12;
+            var playTimeDay = (playTimeMonth - parseInt(playTimeMonth))*30;
+            $scope.playTime = parseInt(playTimeYear) + " Years " + parseInt(playTimeMonth) + " Month " + parseInt(playTimeDay) + " Days played";
+        });
 
     $scope.fakeRealTime = function()
     {
