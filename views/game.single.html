@@ -12,7 +12,9 @@
 				<span class="genre" ng-repeat="genre in game.genres">{{genre.description}}</span>
 			</p>
 			<p><span>Platforms :</span>
-				<span class="genre" ng-repeat="platform in game.platforms" ng-if="platform == true"></span>
+				<span class="platform" ng-if="game.platforms.linux"><i class="mdi mdi-linux"></i></span>
+				<span class="platform" ng-if="game.platforms.mac"><i class="mdi mdi-apple"></i></span>
+				<span class="platform" ng-if="game.platforms.windows"><i class="mdi mdi-windows"></i></span>
 			</p>
 		</div>
 		<div class="info">

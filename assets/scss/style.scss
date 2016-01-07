@@ -177,6 +177,7 @@ a{
 				    overflow: auto;
 				    font-size: 14px;
 				    text-transform: none;
+				    padding: 0 5px;
 				}
 
 				a{
@@ -203,6 +204,12 @@ a{
 				    		content: "";
 				    		margin-right: 0px;
 				    	}
+    				}
+
+    				&.platform{
+    					font-weight: 100;
+				    	width: auto;
+				    	margin-right: 6px;
     				}
 				}
 			}
