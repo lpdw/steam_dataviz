@@ -43,14 +43,11 @@ app.controller('indexCtrl',function($scope,$http)
     });
 
     function getTimePlayed(i){
-        $http.get(api.steamSpy+"/steamspy.com/api.php?request=appdetails&appid="+$scope.appid)   //appel api steamspy
-            .success(function(r)
-            {
-                var playTimeYear = r.average_forever*r.players_forever/60/24/365;
+                console.log($scope.topGames[i].average_forever);
+                var playTimeYear = $scope.topGames[i].average_forever*$scope.topGames[i].players_forever/60/24/365;
                 var playTimeMonth = (playTimeYear - parseInt(playTimeYear))*12;
                 var playTimeDay = (playTimeMonth - parseInt(playTimeMonth))*30;
                 $scope.topGames[i].timePlayed = parseInt(playTimeYear) + " Years " + parseInt(playTimeMonth) + " Month " + parseInt(playTimeDay) + " Days played";
-            });
     }
 
     function retreiveCurrentPlayers(i)
