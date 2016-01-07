@@ -49,10 +49,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
     });
 });
 
-app.controller('mainCtrl', ['$scope', function($scope)
+app.controller('mainCtrl', ['$scope','$rootScope', function($scope,$rootScope)
 {
 	// controlleur principal
 	// ici se trouvent les fnction et variables globales
+  var p = 0;
+  $rootScope.$on('$stateChangeStart', 
+  function(event, toState, toParams, fromState, fromParams)
+  {
+    if(p > 0)
+    {
+      location.reload();
+    }
+    p++;
+  });
 
 	colorChoice = Math.floor(Math.random()*6+1);
 
