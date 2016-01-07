@@ -16,7 +16,6 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
         $scope.user = r.response.players[0];
         $scope.user.friends = [];
         $scope.retreiveFriendsList($scope.user.steamid);
-        console.log($scope.user);
     });
 
     $scope.retreiveFriendsList = function(userId)
@@ -37,8 +36,8 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
                 friendProfil = r.response.players[0];
                 friendProfil.friends = [];
                 $scope.user.friends.push(friendProfil);
-                console.log('firendID : '+friendId);
-                $scope.getFriendsListOfFriends(friendId, friendProfil);
+                console.log('charge les amis');
+                //$scope.getFriendsListOfFriends(friendId, friendProfil);
             });
     }
 
@@ -47,8 +46,6 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
         $http.get(api.steam+"/ISteamUser/GetFriendList/v0001/?key="+api.key+"&steamid="+userId+"&relationship=friend")
             .success(function(t)
             {
-                console.log('repere -----');
-                console.log(userProfil);
                 for(i = 0; i < t.friendslist.friends.length; i++){
                     $scope.getFriendProfilOfFriends(t.friendslist.friends[i].steamid, userProfil);
                 }
