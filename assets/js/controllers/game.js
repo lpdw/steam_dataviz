@@ -77,7 +77,7 @@ app.controller('gameCtrl',function($scope,$http,$stateParams)
             var playTimeYear = r.average_forever*r.players_forever/60/24/365;
             var playTimeMonth = (playTimeYear - parseInt(playTimeYear))*12;
             var playTimeDay = (playTimeMonth - parseInt(playTimeMonth))*30;
-            $scope.playTime = parseInt(playTimeYear) + " Years " + parseInt(playTimeMonth) + " Month " + parseInt(playTimeDay) + " Days played";
+            $scope.playTime = parseInt(playTimeYear) + " Years " + parseInt(playTimeMonth) + " Months " + parseInt(playTimeDay) + " Days played";
         });
 
     $scope.fakeRealTime = function()
