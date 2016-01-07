@@ -16,7 +16,30 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
         $scope.user = r.response.players[0];
         $scope.user.friends = [];
         $scope.retreiveFriendsList($scope.user.steamid);
+        $scope.retreiveGamesList($scope.userId);
     });
+
+    $http.get(api.steam+"/ISteamUser/GetPlayerSummaries/v0002/?key="+api.key+"&steamids="+$scope.userId)   //appel api steam
+    .success(function(r)
+    {
+        $scope.user = r.response.players[0];
+        $scope.user.friends = [];
+        $scope.retreiveFriendsList($scope.user.steamid);
+    });
+
+    $scope.retreiveGamesList = function(userId)
+    {
+        $http.get(api.steam+"/IPlayerService/GetOwnedGames/v0001/?key="+api.key+"&steamid="+userId+"&format=json")
+        .success(function(r)
+        {
+            $scope.user.game_count = r.response.game_count;
+            $scope.user.games = r.response.games;
+            for(i = 0; i < $scope.user.games.length; i++)
+            {
+                $scope.retreiveUserAchievements(userId,$scope.user.games[i].appid);
+            }
+        });
+    }
 
     $scope.retreiveFriendsList = function(userId)
     {
@@ -27,6 +50,31 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
                             $scope.getFriendProfil(t.friendslist.friends[i].steamid);
                         }
                 });
+    }
+
+    function findWithAttr(array, attr, value) {
+        for(var i = 0; i < array.length; i += 1) {
+            if(array[i][attr] === value) {
+                return i;
+            }
+        }
+    }
+
+    $scope.retreiveUserAchievements = function(userId,appId)
+    {
+        $http.get(api.steam+"/ISteamUserStats/GetPlayerAchievements/v0001/?appid="+appId+"&key="+api.key+"&steamid="+userId)   //appel api steam
+        .success(function(r)
+        {
+            if($scope.user.games && r.playerstats)
+            {
+                if(r.playerstats.success)
+                {
+                    var trg = findWithAttr($scope.user.games, 'appid', appId);
+                    $scope.user.games[trg].achievements = r.playerstats.achievements;
+                }
+            }
+            
+        });
     }
 
     $scope.getFriendProfil = function(friendId){
