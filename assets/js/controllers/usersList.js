@@ -9,6 +9,9 @@ app.controller('usersListCtrl',function($scope,$http)
         "76561198073967722"
     ];
 
+    listUsersId = _.shuffle(listUsersId);   //shuffle the array
+    console.log(listUsersId);
+
     var endRequestFriendsList;
 
     $scope.users = [];
