@@ -19,22 +19,22 @@
 	</header>
 	<div class="content" ng-if="user.visibilitystate == 'Public'">
 		<div class="data">
-			<h2>Games in library</h2> 
+			<h2>Games in library</h2>
 			<p>{{user.games.length}}</p>
 		</div>
 
 		<div class="data">
-			<h2>Achievements unlocked</h2> 
+			<h2>Achievements unlocked</h2>
 			<p>{{ user.achievementsUnlocked }}</p>
 		</div>
 
 		<div class="data">
-			<h2>Achievements progress</h2> 
+			<h2>Achievements progress</h2>
 			<p>{{user.achievementPercent}}% ({{ user.achievementsUnlocked }}/{{user.totalAchievements}})</p>
 		</div>
 
 		<div class="data">
-			<h2>Friends</h2> 
+			<h2>Friends</h2>
 			<p>{{ user.friendsCount }}</p>
 		</div>
 
@@ -46,7 +46,7 @@
 		</div>
 
 		<div class="data user owned-games">
-			<h2>Games</h2>
+			<h2>Played Games</h2>
 			<a ng-repeat="game in user.games" href="#/game/{{game.appid}}">
 				<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg">
 			</a>
