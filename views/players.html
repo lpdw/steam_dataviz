@@ -1,0 +1,10 @@
+<div>
+    <h1>test players</h1>
+    <div class="content">
+        <div ng-repeat="user in users">
+            <a href="#/player/{{user.steamid}}" title="{{user.personaname}}">{{ user.personaname }}
+                <img src="{{ user.avatarfull }}"/>
+            </a>
+        </div>
+    </div>
+</div>
