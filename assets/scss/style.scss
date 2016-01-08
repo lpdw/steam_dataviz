@@ -273,8 +273,14 @@ strong{
 	#about .content{
 		text-align: left;
 		.data{
-			width: 100%;
-			max-width: 100%;
+			width: calc(100% - 50px);
+			max-width: none;
+
+			p{
+				font-size: 18px;
+				line-height: 22px;
+				font-weight: normal;
+			}
 		}
 
 	}
