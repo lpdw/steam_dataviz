@@ -13,7 +13,7 @@ a{
 	color: #000;
 }
 
-::-webkit-scrollbar {height:1em;width:0.5em;} 
+::-webkit-scrollbar {height:1em;width:0.5em;}
 ::-webkit-scrollbar-thumb {background:#616161;-webkit-box-shadow: 0 0 2px #888; } /*ascenseur*/
 
 /* ######## SIDEBAR ######### */
@@ -182,7 +182,7 @@ a{
 				    text-transform: none;
 				    padding: 0 5px;
 
-				    ::-webkit-scrollbar {height:1em;width:0.5em;} 
+				    ::-webkit-scrollbar {height:1em;width:0.5em;}
 					::-webkit-scrollbar-thumb {background:#eee;-webkit-box-shadow: 0 0 2px #888; }
 				}
 
@@ -192,7 +192,7 @@ a{
 				}
 
 				span{
-					font-weight: normal;			
+					font-weight: normal;
 					display: inline-block;
 					vertical-align: top;
 				    width: 120px;
@@ -320,6 +320,14 @@ a{
 				}
 		    }
 		}
+		.mostPlayedGames{
+			max-width: 75%;
+
+			.mostPlayedGamesHoursCount{
+				text-align: left;
+			}
+		}
+
 	}
 }
 

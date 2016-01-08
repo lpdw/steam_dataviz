@@ -22,7 +22,7 @@
 			<p>-{{chart.evolving.val}}</p>
 		</div>
 		<div id="graph" class="graph" style="width: 100%; height: 400px; margin: 0 auto"></div>
-		<div class="data">
+		<div class="data mostPlayedGames">
 			<h2>Most Played Games</h2>
 			<table>
 				<tr>
@@ -39,7 +39,7 @@
 					</td>
 					<td><a href="#/game/{{game.appid}}">{{game.name}}</a></td>
 					<td>{{game.currentPlayers}}</td>
-					<td>
+					<td class="mostPlayedGamesHoursCount">
 						<span style="display: block">Years &nbsp;: {{game.timePlayedYear}}</span>
 						<span style="display: block">Months &nbsp;: {{game.timePlayedMonth}}</span>
 						<span style="display: block">Days &nbsp;: {{game.timePlayedDay}}</span>
