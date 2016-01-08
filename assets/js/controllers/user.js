@@ -75,7 +75,8 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
         .success(function(r)
         {
             var trueGame = _.filter(r.response.games, function(g){ return g.playtime_forever > 0; });
-            $scope.user.game_count = trueGame.length;
+            $scope.user.true_game_count = trueGame.length;
+            $scope.user.game_count = r.response.games.length;
             $scope.user.games = trueGame;
             for(i = 0; i < $scope.user.games.length; i++)
             {
