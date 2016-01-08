@@ -10,12 +10,13 @@ app.controller('indexCtrl',function($scope,$http)
         $scope.chart.last = r.players[r.players.length-2];
         $scope.chart.display = $scope.chart.last;           // Displayed value
         $scope.chart.evolving = {};
+        $scope.chart.evolving.val = 0;
         $scope.graph();
 
         setInterval(function(){
             $scope.fakeRealTime();
 
-            var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+            var comma_separator_number_step = $.animateNumber.numberStepFactories.separator('.');
             $('#users').animateNumber(
               {
                 number: $scope.chart.display,
