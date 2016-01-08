@@ -1,25 +1,25 @@
 <div id="game-single">
-	<h1>{{user.personaname}}</h1>
+	<div class="title"><h1>{{user.personaname}}</h1></div>
 	<header id="game-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/10/page_bg_generated_v6b.jpg');">
 		<img src="{{user.avatarfull}}" id="game-banner" style="width:150px;">
 		<div class="info">
 			<h2>Games in library</h2> 
-			<p class="desc">{{user.games.length}}</p>
+			<p>{{user.games.length}}</p>
 		</div>
 
 		<div class="info">
 			<h2>Achievements unlocked</h2> 
-			<p class="desc">{{ user.achievementsUnlocked }}</p>
+			<p>{{ user.achievementsUnlocked }}</p>
 		</div>
 
 		<div class="info">
 			<h2>Achievements progress</h2> 
-			<p class="desc">{{user.achievementPercent}}% ({{ user.achievementsUnlocked }}/{{user.totalAchievements}})</p>
+			<p>{{user.achievementPercent}}% ({{ user.achievementsUnlocked }}/{{user.totalAchievements}})</p>
 		</div>
 
 		<div class="info">
 			<h2>Friends</h2> 
-			<p class="desc">{{ user.friendsCount }}</p>
+			<p>{{ user.friendsCount }}</p>
 		</div>
 
 		<div class="info">

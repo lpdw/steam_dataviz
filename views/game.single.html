@@ -1,5 +1,5 @@
 <div id="game-single">
-	<h1>{{game.name}}</h1>
+	<div class="title"><h1>{{game.name}}</h1></div>
 	<header id="game-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/{{game.additional_infos.appid}}/page_bg_generated_v6b.jpg');">
 		<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.additional_infos.appid}}/header.jpg" id="game-banner">
 		<div class="info">
@@ -17,7 +17,7 @@
 				<span class="platform" ng-if="game.platforms.windows"><i class="mdi mdi-windows"></i></span>
 			</p>
 		</div>
-		<div class="info">
+		<div class="info info-desc">
 			<h2>Description</h2> 
 			<p class="desc">{{ game.about_the_game | stripTags }}</p>
 		</div>

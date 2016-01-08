@@ -135,18 +135,26 @@ a{
 		display: none;
 	}
 
-	h1{
-		color: #000;
-		width: 100%;
+	.title{
 		background-color: #fff;
 		line-height: 65px;
+		min-height: 65px;
+		width: 100%;
 		text-align: center;
-		font-size: 30px;
-		font-weight: 100;
+
+		h1{
+			color: #000;
+			font-size: 30px;
+			font-weight: 100;
+			line-height: normal;
+			vertical-align: middle;
+			display: inline-block;
+		}
 	}
 
 	header{
 		height: auto;
+		min-height: 190px;
 
 		img{
 			float: left;
@@ -169,6 +177,11 @@ a{
 				margin-bottom: 15px;
 			}
 
+			a{
+				color: #fff;
+			    text-transform: none;
+			}
+
 			p{
 				text-transform: capitalize;
 
@@ -184,11 +197,6 @@ a{
 
 				    ::-webkit-scrollbar {height:1em;width:0.5em;} 
 					::-webkit-scrollbar-thumb {background:#eee;-webkit-box-shadow: 0 0 2px #888; }
-				}
-
-				a{
-					color: #fff;
-				    text-transform: none;
 				}
 
 				span{
@@ -322,6 +330,16 @@ a{
 /* ############# RESPONSIVE ############# */
 @media screen and (max-width: 1023px) {
 	.main-container{
+		header{
+			.info{
+				width: calc(50% - 60px);
+
+				&.info-desc{
+					width: auto;
+				}
+			}
+		}
+
 		.content{
 		    .data{
 		    	width: calc(100% - 40px);
@@ -353,6 +371,30 @@ a{
 
 			img{
 				vertical-align: middle;
+			}
+		}
+
+		.title{
+			h1{
+				width: 72%;
+				margin: 0 auto;
+			}
+		}
+
+		header{
+			img{
+				margin:0;
+				width: 100%;
+			}
+			
+			.info{
+				width: calc(100% - 40px);
+
+				p{
+					&.desc{
+						height: 200px;
+					}
+				}
 			}
 		}
 	}
