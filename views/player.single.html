@@ -16,7 +16,7 @@
 		</div>
 
 	</header>
-	<div class="content">
+	<div class="content" ng-if="user.visibilitystate == 'Public'">
 		<div class="data">
 			<h2>Games in library</h2> 
 			<p>{{user.games.length}}</p>
