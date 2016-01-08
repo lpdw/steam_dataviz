@@ -1,28 +1,11 @@
-<div id="game-single">
-	<div class="title"><h1>{{user.personaname}}</h1></div>
-	<header id="game-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/10/page_bg_generated_v6b.jpg');">
+<div id="player-single">
+	<div class="title"><h1>Player profile</h1></div>
+	<header id="player-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/10/page_bg_generated_v6b.jpg');">
 		<img src="{{user.avatarfull}}" id="game-banner" style="width:150px;">
-		<div class="info">
-			<h2>Games in library</h2> 
-			<p>{{user.games.length}}</p>
-		</div>
 
 		<div class="info">
-			<h2>Achievements unlocked</h2> 
-			<p>{{ user.achievementsUnlocked }}</p>
-		</div>
-
-		<div class="info">
-			<h2>Achievements progress</h2> 
-			<p>{{user.achievementPercent}}% ({{ user.achievementsUnlocked }}/{{user.totalAchievements}})</p>
-		</div>
-
-		<div class="info">
-			<h2>Friends</h2> 
-			<p>{{ user.friendsCount }}</p>
-		</div>
-
-		<div class="info">
+			<p><span>Persona name : </span>{{user.personaname}}</p>
+			<p><span>Last log off : </span>{{user.lastlogoff}}</p>
 			<a href="{{user.profileurl}}" target="_blank">
 				<p><i class="mdi mdi-steam"></i> View on Steam</p>
 			</a>
@@ -30,17 +13,37 @@
 
 	</header>
 	<div class="content">
+		<div class="data">
+			<h2>Games in library</h2> 
+			<p>{{user.games.length}}</p>
+		</div>
+
+		<div class="data">
+			<h2>Achievements unlocked</h2> 
+			<p>{{ user.achievementsUnlocked }}</p>
+		</div>
+
+		<div class="data">
+			<h2>Achievements progress</h2> 
+			<p>{{user.achievementPercent}}% ({{ user.achievementsUnlocked }}/{{user.totalAchievements}})</p>
+		</div>
+
+		<div class="data">
+			<h2>Friends</h2> 
+			<p>{{ user.friendsCount }}</p>
+		</div>
+
 		<div class="data user">
-			<h2>Friends ({{ user.friendsCount }})</h2>
+			<h2>Friends</h2>
 			<a ng-repeat="friend in user.friends" href="#/player/{{friend.steamid}}" title="{{friend.personaname}}">
-				<img src="{{friend.avatarfull}}" style="height:50px;">
+				<img src="{{friend.avatarfull}}">
 			</a>
 		</div>
 
 		<div class="data user">
-			<h2>Games ({{user.games.length}})</h2>
+			<h2>Games</h2>
 			<a ng-repeat="game in user.games" href="#/game/{{game.appid}}">
-				<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" style="height:50px;">
+				<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg">
 			</a>
 		</div>
 	</div>

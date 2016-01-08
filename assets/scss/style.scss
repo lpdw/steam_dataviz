@@ -231,6 +231,15 @@ a{
 		}
 	}
 
+	#player-single{
+		header{
+			img{
+				margin-left: 25%;
+				float: none;
+			}
+		}
+	}
+
 	.content{
 		padding: 16px;
 		text-align: center;
@@ -238,9 +247,7 @@ a{
 		.graph{
 		    box-shadow: #000 0px 0px 8px;
 		}
-		.data.user{
-			width: 40%;
-		}
+
 		.data{
 			width: auto;
 			max-width: 50%;
@@ -252,6 +259,11 @@ a{
 		    margin: 10px 0;
 		    margin-right: 10px;
 		    box-shadow: #808080 1px 0px 8px;
+
+		    &.user{
+		    	width: calc(100% - 40px);
+		    	max-width: none;
+		    }
 
 		    h2{
 				font-size: 22px;
@@ -382,13 +394,20 @@ a{
 		}
 
 		header{
+			text-align: center;
+
 			img{
 				margin:0;
 				width: 100%;
+				margin: 0px auto;
+				text-align: center;
+				float: none;
+				padding: 20px;
 			}
 			
 			.info{
 				width: calc(100% - 40px);
+				text-align: center;
 
 				p{
 					&.desc{
