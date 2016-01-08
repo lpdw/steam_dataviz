@@ -34,7 +34,16 @@ a{
 		line-height: 65px;
 
 		img{
-			vertical-align: middle;
+			vertical-align: top;
+    		margin: 5px 0 10px 5px;
+    		width: 75px;
+    		display: inline-block;
+		}
+
+		p{
+			font-size: 35px;
+		    color: #FFF;
+		    display: inline-block;
 		}
 	}
 
@@ -440,7 +449,7 @@ a{
 				float: none;
 				padding: 20px;
 			}
-			
+
 			.info{
 				width: calc(100% - 40px);
 				text-align: center;

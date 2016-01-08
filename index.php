@@ -22,6 +22,7 @@
 	<div class="sidebar">
 		<a href="#/" class="logo">
 			<img src="assets/img/logo.png" alt="Logo">
+			<p>Apps</p>
 		</a>
 		<nav>
 			<ul>
