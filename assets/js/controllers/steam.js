@@ -22,6 +22,17 @@ app.controller('indexCtrl',function($scope,$http)
                 numberStep: comma_separator_number_step
               }
             );
+            $('#increaseVal').animateNumber(
+              {
+                number: $scope.chart.evolving.val
+              }
+            );
+            $('#decreaseVal').animateNumber(
+              {
+                number: -($scope.chart.evolving.val)
+              }
+            );
+
         },5000);      // instantiate graph animation
 
         setInterval(function(){
