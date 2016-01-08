@@ -29,7 +29,6 @@
 				<li><a ui-sref="steam">Steam</a></li>
 				<li><a ui-sref="game">Games</a></li>
 				<li><a ui-sref="player">Players</a></li>
-				<li><a ui-sref="about">About</a></li>
 			</ul>
 		</nav>
 		<?php
@@ -60,6 +59,7 @@
     </div>
     <div class="main-container">
     	<a href="" class="menu-mobile"><img src="assets/img/menu-mobile.png" alt="Mobile Menu"></a>
+		<a ui-sref="about" class="about"><img src='assets/img/info.png' alt='About'></a>
     	<div ui-view></div>
 
     </div>
