@@ -29,6 +29,7 @@
 				<li><a ui-sref="steam">Steam</a></li>
 				<li><a ui-sref="game">Games</a></li>
 				<li><a ui-sref="player">Players</a></li>
+				<li><a ui-sref="about">About</a></li>
 			</ul>
 		</nav>
 		<?php

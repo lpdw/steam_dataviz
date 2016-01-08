@@ -48,6 +48,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/game/:appid",
       templateUrl: "views/game.single.html",
       controller: "gameCtrl"
+    })
+    .state('about', {
+      url: "/about",
+      templateUrl: "views/about.html"
     });
 });
 
