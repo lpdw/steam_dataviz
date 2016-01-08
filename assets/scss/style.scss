@@ -237,6 +237,18 @@ a{
 				margin-left: 25%;
 				float: none;
 			}
+
+			.info{
+				p{
+					span{
+						width: 240px;
+					}
+				}
+
+				a{
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 
@@ -364,6 +376,18 @@ a{
 			}
 		}
 
+		#player-single{
+			header{
+				img{
+					margin-left: 20px;
+				}
+
+				.info{
+					width: calc(100% - 220px);
+				}
+			}
+		}
+
 		.content{
 		    .data{
 		    	width: calc(100% - 40px);
@@ -410,7 +434,7 @@ a{
 
 			img{
 				margin:0;
-				width: 100%;
+				width: calc(100% - 40px;);
 				margin: 0px auto;
 				text-align: center;
 				float: none;
@@ -425,6 +449,28 @@ a{
 					&.desc{
 						height: 200px;
 					}
+				}
+			}
+		}
+
+		.content{
+			.data{
+				&.owned-games{
+					img{
+						width: 100%;
+					}
+				}
+			}
+		}
+
+		#player-single{
+			header{
+				img{
+					margin-left: 0px;
+				}
+
+				.info{
+					width: calc(100% - 40px);
 				}
 			}
 		}

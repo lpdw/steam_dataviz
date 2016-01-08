@@ -21,6 +21,51 @@ app.controller('userCtrl',function($scope,$http,$stateParams)
         $scope.retreiveFriendsList($scope.user.steamid);
         $scope.retreiveGamesList($scope.userId);
         
+        $scope.lastlogged = new Date($scope.user.lastlogoff * 1000);
+        $scope.lastlogged = (parseInt($scope.lastlogged.getMonth())+ 1) + "/" + $scope.lastlogged.getDate() + "/" + $scope.lastlogged.getFullYear();
+
+        $scope.created = new Date($scope.user.timecreated * 1000);
+        $scope.created = (parseInt($scope.created.getMonth())+ 1) + "/" + $scope.created.getDate() + "/" + $scope.created.getFullYear();
+
+        switch($scope.user.personastate){
+            case 0:
+                $scope.user.state = "Offline"
+                break;
+            case 1:
+                $scope.user.state = "Online"
+                break;
+            case 2:
+                $scope.user.state = "Busy"
+                break;
+            case 3:
+                $scope.user.state = "Away"
+                break;
+            case 4:
+                $scope.user.state = "Snooze"
+                break;
+            case 5:
+                $scope.user.state = "Looking to trade"
+                break;
+            case 6:
+                $scope.user.state = "Looking to play"
+                break;
+            default:
+                $scope.user.state = "Not specified"
+                break;
+        }
+
+        switch($scope.user.communityvisibilitystate){
+            case 1:
+                $scope.user.visibilitystate = "Private"
+                break;
+            case 3:
+                $scope.user.visibilitystate = "Public"
+                break;
+            default:
+                $scope.user.visibilitystate = "Not specified"
+                break;
+        }
+
     });
 
 
