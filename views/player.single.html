@@ -7,7 +7,7 @@
 			<p><span>Persona name : </span>{{user.personaname}}</p>
 			<p ng-if="user.realname"><span>Real name : </span>{{user.realname}}</p>
 			<p><span>Community Visibility State : </span>{{user.visibilitystate}}</p>
-			<p><span>Created date : </span>{{created}}</p>
+			<p ng-if="user.timecreated"><span>Created date : </span>{{created}}</p>
 			<p><span>Last log off : </span>{{lastlogged}}</p>
 			<p><span>State : </span>{{user.state}}</p>
 
@@ -20,7 +20,7 @@
 	<div class="content" ng-if="user.visibilitystate == 'Public'">
 		<div class="data">
 			<h2>Games in library</h2>
-			<p>{{user.games.length}}</p>
+			<p>{{user.game_count}}</p>
 		</div>
 
 		<div class="data">
