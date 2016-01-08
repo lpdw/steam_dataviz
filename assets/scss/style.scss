@@ -284,10 +284,15 @@ strong{
 
 			p{
 				font-size: 18px;
-				line-height: 22px;
-				font-weight: normal;
+				line-height: 50px;
+
+				span{
+					font-weight: normal;
+					display: inline-block;
+				}
 
 				a{
+					font-weight: normal;
 					text-decoration: underline;
 				}
 			}
