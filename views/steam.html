@@ -1,0 +1,51 @@
+<div>
+	<div class="title"><h1>Statistics</h1></div>
+	<div class="content">
+		<div class="data">
+			<h2>Players on Steam right now</h2>
+			<p id="users">{{chart.display}}</p>
+		</div>
+		<div class="data" ng-show="chart.evolving.ascending">
+			<h2>Percentage Increase of Players</h2>
+			<p>+{{Math.round((chart.evolving.val * 100 / chart.last)*10000)/10000}}%</p>
+		</div>
+		<div class="data" ng-show="chart.evolving.ascending">
+			<h2>Increase of</h2>
+			<p id="increaseVal">0</p>
+		</div>
+		<div class="data" ng-show="!chart.evolving.ascending">
+			<h2>Percentage Decrease of Players</h2>
+			<p>-{{Math.round((chart.evolving.val * 100 / chart.display)*10000)/10000}}%</p>
+		</div>
+		<div class="data" ng-show="!chart.evolving.ascending">
+			<h2>Decrease of</h2>
+			<p id="decreaseVal">0</p>
+		</div>
+		<div id="graph" class="graph" style="width: 100%; height: 400px; margin: 0 auto"></div>
+		<div class="data mostPlayedGames">
+			<h2>Most Played Games</h2>
+			<table>
+				<tr>
+					<th class="game-img"></th>
+					<th>Name</th>
+					<th>Current Players</th>
+					<th>Total Time Played</th>
+				</tr>
+				<tr ng-repeat="game in topGames | orderBy:'-currentPlayers'" ng-if="game.currentPlayers">
+					<td class="game-img">
+						<a href="#/game/{{game.appid}}">
+							<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg" alt="{{game.name}}" style="width:190px;">
+						</a>
+					</td>
+					<td><a href="#/game/{{game.appid}}">{{game.name}}</a></td>
+					<td>{{game.currentPlayers}}</td>
+					<td class="mostPlayedGamesHoursCount">
+						<span style="display: block">Years &nbsp;: {{game.timePlayedYear}}</span>
+						<span style="display: block">Months &nbsp;: {{game.timePlayedMonth}}</span>
+						<span style="display: block">Days &nbsp;: {{game.timePlayedDay}}</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

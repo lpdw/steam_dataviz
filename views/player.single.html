@@ -1,0 +1,55 @@
+<div id="player-single">
+	<div class="title"><h1>Player Profile</h1></div>
+	<header id="player-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/10/page_bg_generated_v6b.jpg');">
+		<img src="{{user.avatarfull}}" id="game-banner" style="width:150px;">
+
+		<div class="info">
+			<p><span>Persona name : </span>{{user.personaname}}</p>
+			<p ng-if="user.realname"><span>Real name : </span>{{user.realname}}</p>
+			<p><span>Community Visibility State : </span>{{user.visibilitystate}}</p>
+			<p ng-if="user.timecreated"><span>Created date : </span>{{created}}</p>
+			<p><span>Last log off : </span>{{lastlogged}}</p>
+			<p><span>State : </span>{{user.state}}</p>
+
+			<a href="{{user.profileurl}}" target="_blank">
+				<p><i class="mdi mdi-steam"></i> View on Steam</p>
+			</a>
+		</div>
+
+	</header>
+	<div class="content" ng-if="user.visibilitystate == 'Public'">
+		<div class="data">
+			<h2>Games in library</h2>
+			<p>{{user.game_count}}</p>
+		</div>
+
+		<div class="data">
+			<h2>Achievements unlocked</h2>
+			<p>{{ user.achievementsUnlocked }}</p>
+		</div>
+
+		<div class="data">
+			<h2>Achievements progress</h2>
+			<p>{{user.achievementPercent}}% ({{ user.achievementsUnlocked }}/{{user.totalAchievements}})</p>
+		</div>
+
+		<div class="data">
+			<h2>Friends</h2>
+			<p>{{ user.friendsCount }}</p>
+		</div>
+
+		<div class="data user">
+			<h2>Friends</h2>
+			<a ng-repeat="friend in user.friends" href="#/player/{{friend.steamid}}" title="{{friend.personaname}}">
+				<img src="{{friend.avatarfull}}">
+			</a>
+		</div>
+
+		<div class="data user owned-games">
+			<h2>Played Games</h2>
+			<a ng-repeat="game in user.games" href="#/game/{{game.appid}}">
+				<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.appid}}/header.jpg">
+			</a>
+		</div>
+	</div>
+</div>

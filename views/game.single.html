@@ -1,0 +1,57 @@
+<div id="game-single">
+	<div class="title"><h1>{{game.name}}</h1></div>
+	<header id="game-header" style="background-image:url('https://steamcdn-a.akamaihd.net/steam/apps/{{game.additional_infos.appid}}/page_bg_generated_v6b.jpg');">
+		<img src="https://steamcdn-a.akamaihd.net/steam/apps/{{game.additional_infos.appid}}/header.jpg" id="game-banner">
+		<div class="info">
+			<p><span>Type :</span> {{game.type}}</p>
+			<p><span>Developer :</span> {{game.additional_infos.developer}}</p>
+			<p><span>Publisher :</span> {{game.additional_infos.publisher}}</p>
+			<p><span>Release Date :</span> {{game.release_date.date}}</p>
+			<p><span>Website :</span> <a href="{{game.website}}">{{game.website}}</a></p>
+			<p><span>Genres :</span>
+				<span class="genre" ng-repeat="genre in game.genres">{{genre.description}}</span>
+			</p>
+			<p><span>Platforms :</span>
+				<span class="platform" ng-if="game.platforms.linux"><i class="mdi mdi-linux"></i></span>
+				<span class="platform" ng-if="game.platforms.mac"><i class="mdi mdi-apple"></i></span>
+				<span class="platform" ng-if="game.platforms.windows"><i class="mdi mdi-windows"></i></span>
+			</p>
+		</div>
+		<div class="info info-desc">
+			<h2>Description</h2> 
+			<p class="desc">{{ game.about_the_game | stripTags }}</p>
+		</div>
+
+	</header>
+	<div class="content">
+		<div class="data">
+			<h2>Players on Steam right now</h2>
+			<p id="game-users">{{chart.display}}</p>
+		</div>
+		<div class="data" ng-show="chart.evolving.ascending">
+			<h2>Percentage Increase of Players</h2>
+			<p ng-if="chart.evolving.val != 0">+{{Math.round((chart.evolving.val * 100 / chart.last)*10000)/10000}}%</p>
+		</div>
+		<div class="data" ng-show="chart.evolving.ascending">
+			<h2>Increase of</h2>
+			<p>+{{chart.evolving.val}}</p>
+		</div>
+		<div class="data" ng-show="!chart.evolving.ascending">
+			<h2>Percentage Decrease of Players</h2>
+			<p ng-if="chart.evolving.val != 0">-{{Math.round((chart.evolving.val * 100 / chart.display)*10000)/10000}}%</p>
+		</div>
+		<div class="data" ng-show="!chart.evolving.ascending">
+			<h2>Decrease of</h2>
+			<p>-{{chart.evolving.val}}</p>
+		</div>
+		<div class="data">
+			<h2>Owned by</h2>
+			<p id="owners">{{game.additional_infos.owners}} Persons</p>
+		</div>
+		<div class="data" style="max-width: 100%;">
+			<h2>Total play time</h2>
+			<p id="play-time">{{playTime}}</p>
+		</div>
+		<div id="graph-game" class="graph" style="width: 100%; height: 400px; margin: 0 auto"></div>
+	</div>
+</div>
