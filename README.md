@@ -1,6 +1,6 @@
 # **steam_dataviz**
 
-##Présentation
+##Presentation
 Steam DataViz is a type of DataViz Web application, using the Open Data. The goal is to display a large amount of informations and, moreover, updating over time.
 
 The team in charge of this project is made up of four people :
