@@ -12,6 +12,7 @@ The team in charge of this project is made up of four people :
 
 ##Installation
 The project is really simple and quick to set up :)
+
 Some prerequisites:
 
 - A Web server with PHP
